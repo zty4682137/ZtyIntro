@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	#stage
+	{
+		width:800px;
+		height:600px;
+
+		border:1px red solid;
+		margin:200px auto;
+		perspective:800px;
+	}
+	#book
+	{
+		width:600px;
+		height:400px;
+		margin:100px auto;
+		transform-style:preserve-3d;
+		transform:rotatex(40deg) rotatey(0deg) rotatez(0deg);
+		position:relative;
+	}
+	#book div,input
+	{
+		width:300px;
+		height:400px;
+		position:absolute;
+		background:#000;
+		top:0;
+		right:0px;
+		transform-origin:0px 200px;
+		transition:all 1s;
+	}
+	
+	#book input:hover,#book input:hover+div,#book input:hover~input,#book input:hover~div
+	{
+		transform:translatez(10px) rotatey(-10deg);
+		transform-origin:0px 200px;
+	}
+	
+	input
+	{
+		opacity:0;
+	}
+
+	#book input:focus,#book input:focus+div,#book input:focus~input,#book input:focus~div
+	{
+		transform:rotatey(-150deg);
+		/*animation:r1 0.5s;*/
+		animation-fill-mode:both;
+	}
+	#book input:focus/*解决focus和hover冲突的问题(用none会取消focus的状态)*/
+	{
+		height:0px;
+	}
+
+	#inp1+div
+	{
+		background:#ddd;
+		/*z-index:50;*/
+	}
+	#inp2+div
+	{
+		background:#bbb;
+		/*z-index:40;*/
+	}
+	#inp3+div
+	{
+		background:#999;
+		/*z-index:30;*/
+	}
+	#inp4+div
+	{
+		background:#777;
+		/*z-index:20;*/
+	}
+	#inp5+div
+	{
+		background:#555;
+		/*z-index:10;*/
+	}
+	#inp1
+	{
+		z-index:55;
+	}
+	#inp2
+	{
+		z-index:45;
+	}
+	#inp3
+	{
+		z-index:35;
+	}
+	#inp4
+	{
+		z-index:25;
+	}
+	#inp5
+	{
+		z-index:15;
+	}
+
+	@keyframes r1
+	{
+		/*0%{transform:rotatey(-10deg) translatez(40px);}*/
+		100%{transform:rotatey(-180deg) translatez(40px);}
+	}
+
+
+  </style>
+
+ </head>
+ <body>
+  <div id="stage">
+	<div id="book">
+		<input type="text" id="inp5"/><div></div>
+		<input type="text" id="inp4"/><div></div>
+		<input type="text" id="inp3"/><div></div>
+		<input type="text" id="inp2"/><div></div>
+		<input type="text" id="inp1"/><div></div>
+		
+	</div>
+  </div>
+ </body>
+</html>

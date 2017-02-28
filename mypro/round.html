@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ 
+	<style type="text/css">
+	
+	#stage
+	{
+		width:800px;
+		height:400px;
+		border:1px red solid;
+		margin:200px auto;
+		perspective:600px;
+	}
+	#parent
+	{
+		width:200px;
+		height:200px;
+		margin:100px auto;
+		position:relative;
+		transform-style:preserve-3d;
+		transform:rotatex(0deg) rotatey(0deg);
+	}
+	#parent div
+	{
+		width:200px;
+		height:200px;
+		position:absolute;
+		left:0;
+		top:0;
+		border:1px #000 solid;
+		border-radius:50%;
+		
+	}
+	@keyframes ro1
+	{
+		100%{transform:rotatex(720deg);}
+	}
+	@keyframes ro2
+	{
+		100%{transform:rotatex(810deg);}
+	}
+	@keyframes ro3
+	{
+		100%{transform:rotatey(810deg);}
+	}
+	#r1
+	{
+		transform:rotatex(0deg);
+		animation:ro1 4s linear infinite;
+	}
+	#r2
+	{
+		transform:rotatex(90deg);
+		animation:ro2 4s linear infinite;
+	}
+	#r3
+	{
+		transform:rotatey(90deg);
+		animation:ro3 4s linear infinite;
+	}
+	
+	</style>
+ </head>
+ <body>
+  <div id="stage">
+	<div id="parent">
+		
+		<div id="r1">	
+		</div>
+		<div id="r2">	
+		</div>
+		<div id="r3">	
+		</div>
+		
+		
+	</div>
+  </div>
+ </body>
+</html>

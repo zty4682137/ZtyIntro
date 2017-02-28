@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>border</title>
+    <style type="text/css">
+    .content{
+        height: 280px;
+        width: 400px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        /*transform: translate(-50%, -50%);*/
+        /*box-sizing: border-box;*/
+		border:1px green solid;
+        background: url(201605181650194301.gif) no-repeat center center;
+        overflow: hidden;
+    }
+	.img, .inp{
+		height: 280px;
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+		opacity:0;
+		overflow: hidden;
+		border:0;
+	
+		cursor:pointer;
+	}
+	.img{
+		background:#000;
+		color:#fff;
+		text-align:center;
+		font-size:30px;
+		line-height:280px;
+	}
+    .inp {
+    	z-index: 999;
+    	/*opacity: 0;*/
+    }
+    .content:before{
+    	content: "";
+    	position: absolute;
+    	right: 0px;
+    	top: 0px;
+		border-right:20px #000 solid;
+		border-bottom:20px #999 solid;
+    	/*border:0px solid transparent;*/
+        transition: border 1s linear;
+        overflow: hidden;
+    }
+    .inp:hover + .content:before {
+		border-right-width: 60px;
+		border-bottom-width: 60px;
+		border-right-color: #000;
+		border-bottom-color: rgba(99, 99, 99,1);
+    }
+    .inp:focus + .content:before {
+		border-right-width: 1000px;
+		border-bottom-width: 1000px;
+		border-right-color: #000;
+		border-bottom-color: rgba(99, 99, 99, .4);
+    }
+	.inp:focus ~ .img{
+		opacity:1;
+		transition:all 0.6s linear;
+		transition-delay:1s;
+	}
+    </style>
+	
+</head>
+
+<body>
+	<input class="inp" type="text" name="">
+    <div class="content">
+    </div>
+	<div class="img">这是一行没有意义的文字</div>
+</body>
+
+</html>

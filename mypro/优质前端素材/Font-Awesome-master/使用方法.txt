@@ -1,0 +1,11 @@
+  <style>
+	@font-face
+	{
+		font-family:"xxx(自己起名)";
+		src:url('font/fontawesome-webfont.ttf');
+	}
+	.fa
+	{
+		font-family:"xxx(自己起的名字)";
+	}
+  </style>

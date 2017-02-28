@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>banana!!!</title>
+
+  <style type="text/css">
+  
+	#stage
+	{
+		width:700px;
+		height:730px;
+		margin:100px auto;
+		/*border:1px red solid;*/
+	}
+	#content
+	{
+		width:390px;
+		height:490px;
+		margin:75px auto;
+		border-radius:50% 50% 50% 50%/170px 170px 130px 130px;
+		position:relative;
+		transform-origin:50% 560px;
+		/*background:blue;*/
+	}
+	#body
+	{
+		width:390px;
+		height:490px;
+		background:#FDD657;
+		border-radius:50% 50% 50% 50%/170px 170px 130px 130px;
+		position:absolute;
+		box-shadow:-29px -68px 100px 0px #EDAD4C inset;
+		z-index:10;
+	}
+	/*效果太鬼畜 */
+	/*#content:hover*/
+	/*{*/
+		/*animation:pow 2s ease-out;*/
+	/*}*/
+	@keyframes pow
+	{
+		0%,100%{}
+		3%{transform:scalex(0.85) scaley(1.15);}
+		8%{transform:scale(1);}
+		20%{transform:scalex(0.9) scaley(1.1);}
+		30%{transform:scale(1);}
+		40%{transform:scalex(0.95) scaley(1.05);}
+		60%{transform:scale(1);}
+		80%{transform:scalex(0.98) scaley(1.02);}
+	}
+	#eyel,#eyer
+	{
+		height:140px;
+		width:140px;
+		background:#F4F2F7;
+		float:left;
+		position:absolute;
+		border-radius:50%;
+		border:18px #BFB0B5 solid;
+		box-shadow:16px 12px 16px -7px #3D2D37 inset;
+		overflow:hidden;
+		z-index:200;
+	}
+	#eyeballl,#eyeballr
+	{
+		height:53px;
+		width:53px;
+		background-image:radial-gradient(26px at center,#240C0C 0px,#311C21 13px,#EDA278 22px,#2B1313 26px);
+		border-radius:50%;
+		position:absolute;
+	}
+	#eyeballl
+	{
+		left:46%;
+		/*/26/66*/
+		top:30%;
+	}
+	#eyeballr
+	{
+		left:24%;
+		/*/0/48*/
+		top:30%;
+	}
+	#eyeballfan
+	{
+		height:10px;
+		width:10px;
+		border-radius:50%;
+		position:absolute;
+		left:12px;
+		top:14px;
+		background:#fff;
+		box-shadow:0px 0px 5px 1px #fff;
+	}
+	#eyel
+	{
+		top:42px;
+		left:15px;
+	}
+	#eyer
+	{
+		top:42px;
+		left:175px;
+	}
+	#yanjian
+	{
+		height:140px;
+		width:140px;
+		background:#FACE55;
+		top:0;
+		position:absolute;
+		z-index:500;
+		animation:zha2 5s infinite;
+	}
+	@keyframes zha
+	{
+		0%,100%{transform:hei(-140px);}
+		94%{transform:translatey(-140px);}
+		95%{transform:translatey(0px);}
+	}
+	@keyframes zha2
+	{
+		0%,100%{height:0px;}
+		94%{height:0px;}
+		95%{height:140px;}
+	}
+	#mouth
+	{
+		width:68px;
+		height:12px;
+		background:#0D0001;
+		border-radius:50% 50% 0 0/100% 100% 0 0;
+		position:absolute;
+		left:149px;
+		top:253px;
+		z-index:200;
+	}
+
+	#clo
+	{
+		height:240px;
+		width:400px;
+		position:absolute;
+		left:-5px;
+		bottom:0px;
+		z-index:200;
+	}
+	#beidai1,#beidai2
+	{
+		height:35px;
+		
+		background:#5C6B88;
+		position:absolute;
+		border-radius:5px;
+	}
+	#beidai1
+	{
+		transform:skewx(27deg) rotate(32deg);
+		background:#68809A;
+		width:92px;
+		left:7px;
+		top:26px;
+	}
+	#beidai2
+	{
+		transform:skewx(-27deg) rotate(-29deg);
+		background:#57627E;
+		right:7px;
+		top:27px;
+		width:106px;
+	}
+	#leftbutton,#rightbutton
+	{
+		width:18px;
+		height:30px;
+		border-radius:50%;
+		background:#28272D;
+		position:absolute;
+	}
+	#leftbutton
+	{
+		bottom:2px;
+		right:5px;
+		transform:rotatey(24deg);
+	}
+	#rightbutton
+	{
+		bottom:2px;
+		left:4px;
+		
+	}
+	#buttoncenter
+	{
+		width:4px;
+		height:6px;
+		border-radius:50%;
+		background:#776983;
+		position:absolute;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		margin:auto;
+	}
+	
+	#clotop
+	{
+		width:242px;
+		height:105px;
+		position:absolute;
+		left:70px;
+		bottom:81px;
+		background:#606B89;
+	}
+	#dou 
+	{
+		width: 113px;
+		height: 61px;
+		background: #6A7799;
+		position: absolute;
+		border-radius: 3px 3px 46px 44px/4px 3px 38px 38px;
+		left: 62px;
+		top: 29px;
+		box-shadow: 3px 0px 5px 0px #1F2D50;
+	}
+	#douleft
+	{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		left: 22px;
+		top: 8px;
+		box-shadow: -2px -6px 5px -3px inset;
+		border-right: 2px #9296B1 solid;
+		border-bottom: 2px #9296B1 solid;
+		border-radius: 0px 0px 26px 16px/0px 0px 31px 10px;
+	}
+	#douright 
+	{
+		width: 35px;
+		height: 46px;
+		position: absolute;
+		right: 47px;
+		top: 7px;
+		box-shadow: 3px -7px 9px -5px inset;
+		border-left: 2px #9296B1 solid;
+		border-bottom: 2px #9296B1 solid;
+		border-radius: 0px 0px 7px 39px/0px 0px 7px 34px;
+	}
+	#clobottom
+	{
+		width:390px;
+		height:125px;
+		position:absolute;
+		bottom:0px;
+		left:6px;
+		background:#606B89;
+		border-radius:0px 0px 50% 50%/0px 0px 130px 130px;
+		box-shadow:-11px -11px 26px 0px #2D2D39 inset;
+	}
+	#rightarm
+	{
+		width:120px;
+		height:29px;
+		background:#FDD657;
+		position:absolute;
+		top:274px;
+		right:-92px;
+		transform-origin:12px 12px;
+		transform:rotate(40deg);
+		border-radius:0px 12px 12px 0px/0px 12px 12px 0px;
+		box-shadow:69px -28px 53px -29px #DD963C inset;
+		/*z-index:1;*/
+	}
+	#rightarmbtm
+	{
+		width:67px;
+		height:29px;
+		background:#FDD657;
+		position:absolute;
+		top:0px;
+		right:-38px;
+		transform:rotate(-97deg);
+		transform-origin:12px 12px;
+		border-radius:12px 0px 0px 12px/12px 0px 0px 12px;
+	}
+	#righthand
+	{
+		width:90px;
+		height:129px;
+		/*border:1px red solid;*/
+		position:absolute;
+		transform:rotate(86deg);
+		left:72px;
+		bottom:-45px;
+	}
+	#r1,#r2,#r3
+	{
+		position:absolute;
+
+	}
+	#r1
+	{
+		width:38px;
+		height:38px;
+		background:#251C1F;
+		border-radius:50%;
+		box-shadow:14px -10px 7px 0px #0E0004 inset;
+		left:-14px;
+		bottom:41px;
+	}
+	#r2
+	{
+		width:37px;
+		height:37px;
+		background:#372B2F;
+		border-radius:50%;
+		box-shadow:-4px 12px 7px 0px #0E0004 inset;
+		left:17px;
+		bottom:97px;
+	}
+	#r3
+	{
+		width:31px;
+		height:31px;
+		background:#3B2F33;
+		border-radius:50%;
+		box-shadow:-5px -5px 10px 0px #0E0004 inset;
+		left:53px;
+		bottom:83px;
+	}
+	#rh
+	{
+		width:52px;
+		height:66px;
+		position:absolute;
+		background:#3B2F33;
+		border-radius:22px 10px 4px 35px/11px 7px 37px 9px;
+		box-shadow:-15px -15px 24px 0px #0E0004 inset;
+		left:20px;
+		bottom:37px;
+		transform:rotate(7deg);
+	}
+	#rbtm
+	{
+		width: 44px;
+		height: 66px;
+		position: absolute;
+		background: #3B2F33;
+		border-radius: 20px 29px 22px 25px/60px 60px 12px 11px;
+		box-shadow: -5px -5px 36px 0px #0E0004 inset;
+		left: 25px;
+		bottom: -2px;
+		transform: rotate(1deg);
+	}
+	#leftarm
+	{
+		width:29px;
+		height:170px;
+		background:#FDD657;
+		position:absolute;
+		top:274px;
+		left:-18px;
+		transform-origin:12px 12px;
+		border-radius:22px 12px 12px 14px/105px 12px 12px 102px;
+		box-shadow:-58px -93px 32px -50px #DD963C inset;
+		/*z-index:1;*/
+	}
+	#lefthand
+	{
+		width: 90px;
+	    height: 129px;
+		/*border: 1px red solid;*/
+		position: absolute;
+		transform: rotate(173deg);
+		left: -21px;
+		bottom: -100px;
+	}
+	#lbtm
+	{
+		width: 44px;
+		height: 66px;
+		position: absolute;
+		background: #3B2F33;
+		border-radius: 20px 29px 10px 8px/60px 60px 12px 11px;
+		box-shadow:13px -2px 17px -2px #0E0004 inset;
+		left: 25px;
+		bottom: 10px;
+		transform: rotate(1deg);
+	}
+	#lh 
+	{
+		width: 61px;
+		height: 61px;
+		position: absolute;
+		background: #524650;
+		border-radius: 50%;
+		box-shadow: 10px 8px 21px 2px #0E0004 inset;
+		left: 10px;
+		bottom: 31px;
+		transform: rotate(7deg);
+	}
+	#l1,#l2
+	{
+		position:absolute;
+	}
+	#l1
+	{
+		width: 44px;
+		height: 69px;
+		background: #2D2228;
+		border-radius: 20px 20px 20px 20px/26px 39px 20px 20px;
+		box-shadow: 14px 19px 10px 0px #0E0004 inset;
+		left: 12px;
+		bottom: 41px;
+		transform:rotate(-17deg);
+
+	}
+	#l2
+	{
+		width: 35px;
+		height: 35px;
+		background: #372B2F;
+		border-radius: 50%;
+		box-shadow: 13px 13px 10px 0px #0E0004 inset;
+		left: -6px;
+		bottom: 54px;
+	}
+	#leftleg,#rightleg
+	{
+		width:83px;
+		height:79px;
+		background:#483D4B;
+		position:absolute;
+		bottom:-25px;
+	}
+	#leftleg
+	{
+		left:94px;
+		box-shadow:-31px 56px 23px 0px #0E0004 inset;
+		border-radius:0px 0px 11px 28px/0px 0px 34px 101px;
+	}
+	#rightleg
+	{
+		right:88px;
+		box-shadow:-55px 39px 63px 0px #0E0004 inset;
+		border-radius:0px 0px 28px 5px/0px 0px 101px 5px;
+	}
+	#lshoe,#rshoe
+	{
+		position:absolute;
+		z-index:-1;
+	}
+	#lshoe
+	{
+		width: 114px;
+		height: 45px;
+		border-radius: 53px 5px 28px 78px/24px 5px 16px 13px;
+		/*border: 1px red solid;*/
+		bottom: -47px;
+		right: 8px;
+		transform: skewy(9deg) rotate(-17deg);
+		background-image:radial-gradient(23px at 28px 16px,#463B49 0px,#010101 56px);
+	}
+	#rshoe
+	{
+		width: 84px;
+		height: 53px;
+		border-radius: 5px 21px 74px 4px/5px 25px 23px 4px;
+		/*border: 1px red solid;*/
+		background-image:radial-gradient(23px at 73px 16px,#3D2A2E 0px,#010101 35px);
+		bottom: -51px;
+		left: 10px;
+		transform: skewy(16deg) rotate(2deg);
+	}
+  </style>
+
+ </head>
+ <body>
+  <div id="stage">
+	<div id="content">
+		<div id="leftarm"><div  id="lefthand"><div id="lbtm"></div><div id="l2"></div><div id="lh"></div><div id="l1"></div></div></div>
+
+
+		<div id="rightarm"><div id="rightarmbtm"><div id="righthand"><div id="rbtm"></div><div id="rh"></div><div id="r1"></div><div id="r2"></div><div id="r3"></div></div></div></div>
+
+
+		<div id="body"></div>
+		<div id="leftleg"><div id="lltop"><div id="lshoe"></div></div></div>
+
+
+		<div id="rightleg"><div id="rltop"><div id="rshoe"></div></div></div>
+
+
+
+		<div id="eyel"><div id="eyeballl"><div id="eyeballfan"></div></div><div id="yanjian"></div></div><div id="eyer"><div id="eyeballr"><div id="eyeballfan"></div></div><div id="yanjian"></div></div><div id="yanjing"></div>
+
+
+		<div id="mouth"></div>
+
+
+		<div id="clo">
+			<div id="clobottom"><div id="douleft"></div><div id="douright"></div></div>
+			<div id="clotop"><div id="dou"></div></div>
+			<div id="beidai1"><div id="leftbutton"><div id="buttoncenter"></div></div></div>
+			<div id="beidai2"><div id="rightbutton"><div id="buttoncenter"></div></div></div>
+			
+		</div>
+
+		
+		
+	</div>
+  </div>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+		$(window).mousemove(function(e){
+
+			//var mxlefteye=(20+(e.clientX/3555)*100);
+			var mxlefteye=(20+(e.clientX/(innerWidth/0.4))*100);
+			//var mxrighteye=(5+(e.clientX/2863)*100);
+			var mxrighteye=(5+(e.clientX/(innerWidth/0.48))*100);
+			var my=(e.clientY>373)?64:(e.clientY/590)*100;
+			//console.log(mxlefteye,mxrighteye,my);//测试代码
+			$("#eyeballl").css("left",mxlefteye+"%").css("top",my+"%");
+			$("#eyeballr").css("left",mxrighteye+"%").css("top",my+"%");
+
+		})
+  </script>
+ </body>
+</html>

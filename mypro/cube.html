@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <style type="text/css">
+  #stage
+  {
+	width:800px;
+	height:600px;
+	perspective:400px;
+	margin:90px auto;
+	position:relative;
+  }
+  #parent
+  {
+	width:200px;
+	height:200px;
+	transform-style:preserve-3d;
+	position:absolute;
+	animation:r1 5s ease infinite alternate;
+	/*border:1px red solid;*/
+	left:300px;
+	top:200px;
+  }
+  
+  @keyframes r1
+	{
+		50%{transform:rotatex(360deg) rotatey(0deg);}
+		100%{transform:rotatex(360deg) rotatey(360deg);}
+	}
+	p
+	{
+		width:200px;
+		height:200px;
+		background:#0f0;
+		position:absolute;
+		/*left:300px;*/
+		/*top:200px;*/
+		opacity:0.5;
+		transition:all 2s ;
+	}
+
+
+	#p1
+	{
+		transform:translatez(100px);
+		background:#f00;
+	}
+	#parent:hover #p1
+	 {
+		transform:translatez(200px);
+	 }
+
+
+	#p2
+	{
+		transform:translatez(-100px);
+		background:#0f0;
+	}
+	#parent:hover #p2
+	 {
+		transform:translatez(-200px);
+	 }
+
+
+	#p3
+	{
+		transform:rotatey(90deg) translatez(100px);
+		background:#00f;
+	}
+	#parent:hover #p3
+	 {
+		transform:rotatey(90deg) translatez(200px);
+	 }
+
+
+	#p4
+	{
+		transform:rotatey(-90deg) translatez(100px);
+		background:#ff0;
+	}
+	#parent:hover #p4
+	 {
+		transform:rotatey(-90deg) translatez(200px);
+	 }
+
+
+	#p5
+	{
+		transform:rotatex(90deg) translatez(100px);
+		background:#0ff;
+	}
+	#parent:hover #p5
+	 {
+		transform:rotatex(90deg) translatez(200px);
+	 }
+
+
+	#p6
+	{
+		transform:rotatex(-90deg) translatez(100px);
+		background:#f0f;
+	}
+	#parent:hover #p6
+	 {
+		transform:rotatex(-90deg) translatez(200px);
+	 }
+
+
+  </style>
+ </head>
+ <body>
+  <div id="stage">
+	<div id="parent">
+		<p id="p1"></p>
+		<p id="p2"></p>
+		<p id="p3"></p>
+		<p id="p4"></p>
+		<p id="p5"></p>
+		<p id="p6"></p>
+	</div>
+  </div>
+ </body>
+</html>

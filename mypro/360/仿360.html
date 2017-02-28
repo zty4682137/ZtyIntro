@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="360安全卫士">
+  <meta name="Description" content="">
+  <title>360</title>
+
+ <style>
+
+	*{
+	padding:0px;
+	margin:0px;
+	}
+	a:link,a:visited,a
+	{
+		text-decoration:none;
+	}
+
+	#header
+	{
+		
+		width:100%;
+		height:50px;
+		
+		position:fixed;
+		left:0px;
+		top:0px;
+		background:white;
+		z-index:1000;
+
+	}
+	#header>div
+	
+	{
+		width:157px;
+		height:31px;
+		/*float:left;*/
+		background:url("iconlist_1.png");
+		background-position:-870px -98px;
+		position:absolute;
+		left:250px;
+		top:10px;
+	}
+	#header>ul
+	{
+		/*float:right;*/
+		list-style:none;
+		position:absolute;
+		right:100px;
+		
+	}
+	#header ul li
+	{
+		
+		height:48px;
+		width:150px;
+		float:left;
+		margin:0px 0px;
+		
+		font-size:12pt;
+		font-family:"microsoft yahei";
+		line-height:50px;
+		text-align:center;
+		
+		border-bottom:4px transparent solid;
+		transition:all 2s;
+	}
+	
+	#header ul li:hover
+	{
+		border-bottom:4px blue solid;
+	}
+	#header ul li:
+	{
+		text-decoration:none;
+	}
+	#hujiao,#d5
+	{
+		width:100%;
+		height:600px;
+	}
+	#jixing,#d4,#d6
+	{
+		width:800px;
+		height:600px;
+		margin:0px auto;
+
+	}
+	#banner
+	{
+		background-image:url("bg_1.jpg");
+		background-size:100% 100%;
+		width:100%;
+		height:600px;
+		margin:0px auto;
+		margin-top:50px;
+		overflow:hidden;
+	}
+	#banner ul
+	{
+		margin:40px auto;
+		display:block;
+		padding:0px 20px;
+		width:780px;
+		height:200px;
+		position:relative;
+
+		/*border:1px blue solid;*/
+	}
+	#banner ul li
+	{
+		list-style-type:none;
+		width:174px;
+		height:196px;
+		
+		margin:0px 0px;
+		position:absolute;
+		z-index:1;
+		
+		
+	}
+	
+	#banner ul li b
+	{
+		display:block;
+		width:174px;
+		height:173px;
+		background-image:url("iconlist_1.png");
+		
+		
+		
+	}
+	#banner ul li #b1
+	{
+		background-position:0px 0px;
+		z-index:100;
+	}
+	#banner ul li #b2
+	{
+		background-position:-174px 0px;
+		z-index:200;
+		
+	}
+	#banner ul li #b3
+	{
+		background-position:-348px 0px;
+		z-index:300;
+		
+	}
+	#banner ul li #b4
+	{
+		background-position:-522px 0px;
+		z-index:400;
+		
+	}
+	#banner ul li #b5
+	{
+		background-position:-696px 0px;
+		z-index:500;
+		
+	}
+
+
+	#banner ul #l1
+	{
+		left:0px;
+		
+	}
+	#banner ul #l2
+	{
+		left:160px;
+		
+	}
+	#banner ul #l3
+	{
+		left:320px;
+		
+	}
+	#banner ul #l4
+	{
+		left:480px;
+		
+	}
+	#banner ul #l5
+	{
+		left:640px;
+		
+	}
+
+
+	#banner ul li i
+	{
+		display:block;
+		height:20px;
+		width:174px;
+		background-image:url("iconlist_1.png");
+		background-position:-870px -130px;
+		margin-top:-10px;
+		position:absolute;
+		z-index:-1;
+	
+	}
+	#img
+	{
+		height:53px;
+		width:454px;
+		background-image:url("iconlist_1.png");
+		background-position:-869px 0px;
+		margin:110px auto 20px;
+
+	}
+	.cont
+	{
+		width:900px;
+		height:100%;
+		margin:0px auto;
+	}
+	#banner p
+	{
+		text-align:center;
+		font-family:"microsoft yahei"
+		font-size:12pt;
+		color:#888;
+	}
+
+	#jixing ul
+	{
+		margin-top:50px;
+	}
+
+	#jixing ul li
+	{
+		list-style:none;
+		display:block;
+		width:649px;
+		height:297px;
+		background-image:url("iconlist_2.png");
+		background-position:-1656px 0px;
+		margin:30px auto;
+		
+	}
+	#jixing h1
+	{
+		font-family:"microsoft yahei";
+		color:#333;
+		text-align:center;
+		line-height:150px;
+	}
+	#jixing p
+	{
+		font-family:"microsoft yahei";
+		color:#777;
+		text-align:center;
+		
+		font-size:12pt;
+	}
+	#hujiao
+	{
+		background-image:url("bg_2.jpg");
+		background-position:-150px 0px;
+		overflow:hidden;
+
+	}
+	#hujiao div
+	{
+		width:840px;
+		height:536px;
+		margin:40px auto;
+		background-image:url("iconlist_2.png");
+	}
+
+	#banner ul #l1{animation:m1 7.35s linear;}
+	#banner ul #l2 {animation:m2 10s linear;}
+	#banner ul #l3 {animation:m3 12.65s linear;}
+	#banner ul #l4 {animation:m4 15.3s linear;}
+	#banner ul #l5 {animation:m5 17.95s linear;}
+	#banner ul #l5 #b5 {animation:r5 17.95s linear;}
+
+	@keyframes r5
+	{
+		from
+		{transform:rotate(-720deg);}
+		to
+		{transform:rotate(0deg);}
+	}
+
+
+	@keyframes m1
+	{
+		from
+		{transform:translateX(-441px);}
+		to
+		{transform:translateX(0px);}
+	}
+
+	@keyframes m2
+	{
+	from
+	{transform:translatex(-600px);}
+	to
+	{transform:translatex(0px);}
+	}@keyframes m3
+	{
+	from
+	{transform:translatex(-759px);}
+	to
+	{transform:translatex(0px);}
+	}@keyframes m4
+	{
+	from
+	{transform:translatex(-918px);}
+	to
+	{transform:translatex(0px);}
+	}@keyframes m5
+	{
+	from
+	{transform:translatex(-1077px);}
+	to
+	{transform:translatex(0px);}
+	}
+	#footer
+	{
+		
+	}
+	#banner
+	#jixing
+	
+	
+
+
+
+
+ </style>
+ 
+ 
+ 
+ </head>
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ <body>
+	
+	 <div id="header">
+		<div></div>
+		<ul>
+			<li><a href="">首页</a></li>
+			<li><a href="">联系我们</a></li>
+			<li><a href="">我是广告</a></li>
+			<li><a href="">他是广告我不是</a></li>
+		</ul>
+		
+	 </div>
+
+
+	 <div id="banner">
+		<div class="cont">
+			<div id="img"></div>
+			<h1></h1>
+			<p>时尚小巧的智能balabalabalabalabalabalabalabalabalabala</p>
+			<ul>
+				<li id="l1"><b id="b1"></b><i></i></li>
+				<li id="l2"><b id="b2"></b><i></i></li>
+				<li id="l3"><b id="b3"></b><i></i></li>
+				<li id="l4"><b id="b4"></b><i></i></li>
+				<li id="l5"><b id="b5"></b><i></i></li>
+				
+			</ul>
+		</div>
+	 </div>
+	 <div id="jixing">
+		<h1>阿西吧</h1>
+		<p>爱对方就爱哦驸马让你GIF等噶her好难过</p>
+		<ul>
+			<li></li>
+		</ul>
+	 </div>
+	 <div id="hujiao">
+		<div></div>
+	 </div>
+	 <div id="d4"></div>
+	 <div id="d5"></div>
+	 <div id="d6"></div>
+	
+
+
+
+
+
+
+ </body>
+</html>

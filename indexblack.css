@@ -1,0 +1,184 @@
+body
+{
+	background:#000;
+	color:#fff;
+	font-family:"microsoft yahei";
+	animation:f1 2.5s ease-out;
+}
+@keyframes f1
+{
+	from{
+		opacity:0;
+		/*background:#fff;*/
+		}
+	to	{
+		opacity:1;
+		/*background:#000;*/
+		}
+}
+a,a:link,a:visited,a:active
+{
+	text-decoration:none;
+	color:#fff;
+}
+*
+{
+	margin:0px;
+	padding:0px;
+}
+div
+{
+	/*border:1px red solid;*/
+}
+#header
+{
+	width:100%;
+	height:60px;
+}
+#header>a
+{
+	display:block;
+	float:right;
+	width:50px;
+	height:100%;
+}
+#banner
+{
+	width:1420px;
+	height:600px;
+	position:relative;
+	/*background:url("images/pic4.jpg");*/
+	background-repeat:no-repeat;
+	background-size:100%;
+	background-position:-0px -40px;
+	border-radius:40px;
+
+}
+#banner>#intro,#banner>#work
+{
+	text-decoration:none;
+	color:#333;
+	display:block;
+	width:350px;
+	height:350px;
+	position:absolute;
+	font-size:40pt;
+	text-align:center;
+	line-height:120px;
+	border-radius:50%;
+	transition:all 1s ease-out;
+	/*border:1px green solid;*/
+}
+#intro
+{
+	left:220px;
+	top:130px;
+}
+#work
+{
+	right:220px;
+	top:130px;
+}
+#banner>#intro:hover,#banner>#work:hover
+{
+	background:#222;
+	/*opacity:0.9;*/
+	color:#fff;
+	box-shadow:0px 0px 25px 15px #fff inset;
+	/*transform:scale(1.05);*//*解决不了缩放时文字出现模糊的问题*/
+	/*width:368px;*/
+	/*height:368px;*//*解决不了位移问题*/
+	text-shadow:0px 0px 10px #ddd;
+}
+#other
+{
+	height:600px;
+}
+#other ul
+{
+	list-style:none;
+	margin:80px 10px 0px 200px;
+}
+#other ul li
+{
+	width:130px;
+	height:50px;
+	margin:60px;
+	position:relative;
+	/*border:1px red solid;*/
+}
+#other ul li a
+{
+	display:block;
+	height:50px;
+	width:130px;
+	color:#333;
+	transition:all 0.6s ease-out;
+}
+#other ul li a div
+{
+	width:770px;
+	height:450px;
+	position:absolute;
+	display:none;
+	opacity:0;
+	transition:all 0.6s ease-out;
+}
+
+#other ul li a #liimg1
+{
+	background:url("images/1.jpg");
+	top:-10px;
+	left:200px;
+}
+#other ul li a #liimg2
+{
+	background:url("images/7.jpg");
+	top:-120px;
+	left:200px;
+}
+#other ul li a #liimg3
+{
+	background:url("images/5.jpg");
+	top:-230px;
+	left:200px;
+}
+#other ul li a #liimg4
+{
+	background:url("images/3.jpg");
+	top:-340px;
+	left:200px;
+}
+#other ul li a:hover
+{
+	color:#fff;
+	transform:translatex(30px);
+	text-shadow:2px 2px 10px #ddd;
+}
+
+#other ul li a:hover div
+{
+	display:block;
+	opacity:1;
+}
+
+footer
+{
+	text-align:center;
+}
+
+#backtotop
+{
+	display:block;
+	width:82px;
+	height:82px;
+	position:fixed;
+	right:10px;
+	bottom:10px;
+	background:url("images/iconlist_2.png");
+	background-position:-429px -589px;
+}
+#backtotop:hover
+{
+	background-position:-510px -589px;
+}

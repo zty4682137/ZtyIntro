@@ -1,0 +1,269 @@
+body
+{
+	font-family:"microsoft yahei";
+}
+*
+{
+	margin:0px;
+	padding:0px;
+}
+
+div
+{
+	/*border:1px red solid;*/
+}
+
+#header
+{
+	width:100%;
+	height:60px;
+}
+
+#header>a
+{
+	display:block;
+	float:right;
+	width:50px;
+	height:100%;
+}
+
+#banner
+{
+	width:1200px;
+	height:650px;
+	position:relative;
+	background:url("images/4.jpg");
+	background-repeat:no-repeat;
+	background-size:100%;
+	margin:0px auto 60px;
+	border-radius:40px;
+
+}
+#banner>#intro,#banner>#work
+{
+	text-decoration:none;
+	color:#000;
+	display:block;
+	width:50%;
+	height:100%;
+	position:absolute;
+	font-size:50pt;
+	text-align:center;
+	line-height:248px;
+	transition:all 1s ease-out;
+	
+}
+#banner>#intro
+{
+	border-radius:40px 0px 0px 40px;
+}
+#banner>#work
+{
+	border-radius:0px 40px 40px 0px;
+}
+#banner>#intro:hover,#banner>#work:hover
+{
+	background:rgba(22,22,22,0.5);
+	/*opacity:0.6;*/
+	color:#fff;
+
+}
+
+#banner>#work
+{
+	right:0px;
+}
+#ability
+{
+	margin:80px auto;
+	width:1200px;
+	height:800px;
+	color:#000;
+	position:relative;
+	text-align:center;
+	line-height:150px;
+	/*background:url("images/shadow.png");*/
+	background-repeat:no-repeat;
+	background-position:0px -10px;
+}
+#ability>h1
+{
+	font-size:60pt;
+}
+#skill,#tianfu
+{
+	width:500px;
+	height:80%;
+	position:absolute;
+	bottom:0px;
+	box-shadow:0 0 90px 10px #334455 inset;
+	background:#556677;
+	transition:all 2s;
+}
+#skill h3,#tianfu h3
+{
+	margin-top:50px;
+	font-size:40pt;
+}
+#ability>#skill>h3,#ability>#tianfu>h3
+{
+	transition:all 0.5s;
+}
+
+#skill:hover,#tianfu:hover
+{
+	background:#778899;
+	box-shadow:0 0 143px 34px #223344 inset;
+}
+#skill:hover h3,#tianfu:hover h3
+{
+	text-shadow:0 0 20px #fff;
+}
+
+#ability ul li
+{
+	float:left;
+	background:#aa2222;
+	border-radius:10%;
+	width:120px;
+	height:120px;
+	margin:22px;
+	opacity:0.3;
+	transition:all 0.3s;
+	line-height:120px;
+	font-weight:bold;
+	font-size:20pt;
+}
+#ability ul
+{
+	list-style:none;
+}
+#skill:hover li,#tianfu:hover li
+{
+	transform:translatey(30px);
+	opacity:1;
+}
+#skill li:hover,#tianfu li:hover
+{
+	transform:scale(1.15) translatey(30px);
+	box-shadow:0 0 20px 3px #fff;
+}
+
+#skill
+{
+	/*border:1px red solid;*/
+	left:100px;
+	border-radius:40px 0 0 40px ;
+}
+#tianfu
+{
+	/*border:1px red solid;*/
+	right:100px;
+	border-radius:0 40px 40px 0;
+}
+#other
+{
+	width:100%;
+	height:250px;
+	margin-top:50px;
+	margin-bottom:0px;
+	background:url("images/intro_bg.jpg");
+	overflow:hidden;
+	margin:0px auto;
+}
+#other ul
+{
+	list-style:none;
+	width:1200px;
+	height:210px;
+	margin:30px auto;
+	/*border:1px red solid;*/
+}
+#other li
+{
+	width:350px;
+	height:200px;
+	float:left;
+	position:relative;
+	/*border:1px green solid;*/
+	margin:0px 20px;
+	
+}
+
+#other #hobby:hover #hobbyimg,#other #exp:hover #expimg,#other #ex1:hover #ex1img
+{
+	transform:scale(1.3);
+	box-shadow:40px 40px 15px -30px #666;
+}
+
+#other a,#other a:link,#other a:active, #other a:visited
+{
+	text-decoration:none;
+	display:block;
+	height:100%;
+	width:100%;
+	color:#000;
+}
+#hobbyimg,#expimg,#ex1img,#ex2img
+{
+	width:150px;
+	height:150px;
+	/*background:url("");*/
+	position:absolute; 
+	left:25px;
+	top:25px;
+	text-align:left;
+	border-radius:50%;
+	box-shadow:7px 7px 5px 0px #000;
+	transition:all 1s ease-out;
+}
+#hobbyimg
+{
+	background:url("images/serv_icon1.png");
+	background-size:100% 100%;
+}
+#expimg
+{
+	background:url("images/serv_icon2.png");
+	background-size:100% 100%;
+}
+#ex1img
+{
+	background:url("images/serv_icon4.png");
+	background-size:100% 100%;
+}
+/*#ex2img*/
+/*{*/
+	/*background:url("images/serv_icon4.png");*/
+	/*background-size:100% 100%;*/
+/*}*/
+
+#hobbytext,#exptext,#ex1text
+{
+	position:absolute;
+	left:200px;
+	top:40px;
+}
+#backtotop
+{
+	display:block;
+	width:82px;
+	height:82px;
+	position:fixed;
+	right:10px;
+	bottom:10px;
+	background:url("images/iconlist_2.png");
+	background-position:-429px -589px;
+}
+#backtotop:hover
+{
+	background-position:-510px -589px;
+}
+footer
+{
+	width:100%;
+	height:60px;
+	background:#ccc;
+	text-align:center;
+	line-height:30px;
+}

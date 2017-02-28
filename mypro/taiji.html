@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+		body
+		{
+			background:#000;
+		}
+		#content
+		{
+			height:400px;
+			width:400px;
+			border-radius:50%;
+			/*border:1px #ccc solid;*/
+			position:relative;
+			animation:roundf 20s linear infinite;
+			box-shadow:0px 0px 200px 30px #ccc;
+			margin:100px auto;/*后期取消*/
+
+		}
+		@keyframes roundf
+		{
+			100%{
+					transform:rotate(360deg);
+					/*box-shadow:0px 0px 400px 5px #ccc;*/
+				}
+		}
+		#left,#right
+		{
+			height:400px;
+			width:200px;
+			float:left;
+		}
+		#right
+		{
+			transform:rotate(180deg);
+		}
+		#blkfish,#whtfish
+		{
+			height:400px;
+			width:200px;
+			border-radius:100% 0 0 100%/50% 0 0 50%;
+			background:#000;
+			position:relative;
+		}
+		#whtfish
+		{
+			background:#fff;
+		}
+		#blkbpoint,#whtbpoint
+		{
+			height:200px;
+			width:200px;
+			border-radius:50%;
+			background:#000;
+			position:absolute;
+			left:100px;
+			z-index:50;
+		}
+		#whtbpoint
+		{
+			background:#fff;
+		}
+		#whtpoint,#blkpoint
+		{
+			height:50px;
+			width:50px;
+			position:absolute;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			margin:auto;
+			border-radius:50%;
+			background:#fff;
+		}
+		#blkpoint
+		{
+			background:#000;
+		}
+	</style>
+
+ </head>
+ <body>
+  <div id="content">
+	<div id="left"><div id="blkfish"><div id="blkbpoint"><div id="whtpoint"></div></div></div></div>
+	<div id="right"><div id="whtfish"><div id="whtbpoint"><div id="blkpoint"></div></div></div></div>
+  </div>
+ </body>
+</html>
