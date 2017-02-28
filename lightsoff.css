@@ -70,7 +70,7 @@
 	position:absolute;
 	right:200px;
 	top:90px;
-	border:1px red solid;
+	/*border:1px red solid;*/
 	z-index:200;
 }
 .graytext

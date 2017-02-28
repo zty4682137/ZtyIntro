@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*html{*/
+            /*overflow: hidden;*/
+        /*}*/
+        body{
+            overflow: hidden;
+        }
+        .blk{
+            background: #000;
+        }
+        .wht{
+            background: #fff;
+        }
+        .round{
+            border-radius: 50%;
+        }
+        .bb{
+            border: 1px solid #000000;
+        }
+        .container{
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin:auto;
+            animation: rotate 50s linear reverse infinite;
+            transform-origin: 50% 50%;
+            overflow: hidden;
+        }
+        .bigb,.bigw{
+            float: left;
+            width: 50%;
+            height: 100%;
+            border-radius:100% 0 0 100% / 50% 0 0 50%;
+        }
+        .bigb{
+            transform:rotate(180deg);
+        }
+        .minb,.minw{
+            height: 50%;
+            width: 50%;
+            position: absolute;
+        }
+        .minb{
+            top: 0;
+            left: 25%;
+        }
+        .minw{
+            bottom: 0;
+            left: 25%;
+        }
+        .smallb,.smallw
+        {
+            height: 40%;
+            width: 40%;
+            position: absolute;
+            left: 30%;
+            top: 30%;
+        }
+        @keyframes rotate {
+            100%{transform: rotate(360deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="container round">
+        <div class="bigw wht"></div>
+        <div class="bigb blk"></div>
+        <div class="minb blk round">
+            <div class="smallw wht round"></div>
+        </div>
+        <div class="minw wht round">
+            <div class="smallb blk round"></div>
+        </div>
+    </div>
+</body>
+</html>
