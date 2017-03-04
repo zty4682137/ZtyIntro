@@ -80,8 +80,8 @@ div
 	text-align:center;
 	line-height:150px;
 	/*background:url("images/shadow.png");*/
-	background-repeat:no-repeat;
-	background-position:0 -10px;
+	/*background-position:0 -10px no-repeat;*/
+	cursor: default;
 
 }
 #ability>h1
@@ -168,11 +168,9 @@ div
 {
 	width:100%;
 	height:250px;
-	margin-top:50px;
-	margin-bottom:0px;
 	background:url("images/intro_bg.jpg");
 	overflow:hidden;
-	margin:0px auto;
+	margin:5% auto 0;
 }
 #other ul
 {
@@ -218,7 +216,7 @@ div
 	text-align:left;
 	border-radius:50%;
 	box-shadow:7px 7px 5px 0px #000;
-	transition:all 1s ease-out;
+	transition:all 1s;
 }
 #hobbyimg
 {

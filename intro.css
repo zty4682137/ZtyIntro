@@ -1,7 +1,7 @@
 *
 {
-	padding:0px;
-	margin:0px;
+	padding:0;
+	margin:0;
 }
 div
 {
@@ -9,13 +9,13 @@ div
 }
 body
 {
-	background:url("images/5.jpg");
+	background:url("images/9.jpg") 0 80%;
 	background-attachment:fixed;
-	background-size:contain;
+	background-size: cover;
 }
 #nav a,#nav a:link,#nav a:active,#nav a:visited
 {
-	margin:0px;
+	margin:0;
 	display:block;
 	height:58px;
 	width:100%;
@@ -63,15 +63,13 @@ body
 #main
 {
 	width:60%;
-	height:1000px;
 	margin:130px auto 100px;
-	position:relative;
-	/*top:60px;*/
+	padding: 0 0 5%;
 	text-align:center;
 	background:url("images/intro_bg.jpg");
 	border-radius:30px;
 	font-family:"microsoft Yahei";
-	box-shadow:20px 30px 10px 0px rgba(00,00,00,0.6);
+	box-shadow:20px 30px 10px 0 rgba(00,00,00,0.6);
 	text-shadow:5px 5px 5px #aaa;
 	
 }
@@ -80,8 +78,7 @@ body
 	width:120px;
 	height:150px;
 	margin:10px auto;
-	background:url("images/r1.jpg");
-	background-position:-180px -200px;
+	background:url("images/r1.jpg") -180px -200px;
 }
 #main h1
 {
@@ -92,7 +89,7 @@ body
 {
 	display:block;
 	width:70%;
-	margin:50px auto;
+	margin:5% auto;
 	text-align:left;
 	line-height:40px;
 }
@@ -104,8 +101,7 @@ body
 	position:fixed;
 	right:10px;
 	bottom:10px;
-	background:url("images/iconlist_2.png");
-	background-position:-429px -589px;
+	background:url("images/iconlist_2.png") -429px -589px;
 }
 #backtotop:hover
 {
