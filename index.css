@@ -29,13 +29,12 @@ div
 
 #banner
 {
-	width:1200px;
-	height:650px;
+	width:90%;
+	height:550px;
 	position:relative;
-	background:url("images/4.jpg");
-	background-repeat:no-repeat;
+	background:url("images/4.jpg") no-repeat;
 	background-size:100%;
-	margin:0px auto 60px;
+	margin:4% auto 4%;
 	border-radius:40px;
 
 }
@@ -46,10 +45,11 @@ div
 	display:block;
 	width:50%;
 	height:100%;
-	position:absolute;
-	font-size:50pt;
+	float: left;
+	/*position:absolute;*/
+	font-size:4rem;
 	text-align:center;
-	line-height:248px;
+	line-height:160px;
 	transition:all 1s ease-out;
 	
 }
@@ -69,14 +69,11 @@ div
 
 }
 
-#banner>#work
-{
-	right:0px;
-}
+
 #ability
 {
-	margin:80px auto;
-	width:1200px;
+	margin:4% auto;
+	width:90%;
 	height:800px;
 	color:#000;
 	position:relative;
@@ -84,7 +81,8 @@ div
 	line-height:150px;
 	/*background:url("images/shadow.png");*/
 	background-repeat:no-repeat;
-	background-position:0px -10px;
+	background-position:0 -10px;
+
 }
 #ability>h1
 {
@@ -92,18 +90,21 @@ div
 }
 #skill,#tianfu
 {
-	width:500px;
+	width:50%;
 	height:80%;
-	position:absolute;
+	/*position:absolute;*/
 	bottom:0px;
+	float: left;
 	box-shadow:0 0 90px 10px #334455 inset;
 	background:#556677;
 	transition:all 2s;
+	/*box-sizing: border-box;*/
+	overflow: hidden;
 }
 #skill h3,#tianfu h3
 {
 	margin-top:50px;
-	font-size:40pt;
+	font-size: 3.5rem;;
 }
 #ability>#skill>h3,#ability>#tianfu>h3
 {
@@ -125,14 +126,16 @@ div
 	float:left;
 	background:#aa2222;
 	border-radius:10%;
-	width:120px;
+	width:22%;
 	height:120px;
-	margin:22px;
+	margin:6% 5% ;
 	opacity:0.3;
 	transition:all 0.3s;
 	line-height:120px;
 	font-weight:bold;
-	font-size:20pt;
+	font-size:1.2rem;
+	box-sizing: border-box;
+	/*text-align: inherit;*/
 }
 #ability ul
 {
@@ -152,13 +155,13 @@ div
 #skill
 {
 	/*border:1px red solid;*/
-	left:100px;
+	/*left:100px;*/
 	border-radius:40px 0 0 40px ;
 }
 #tianfu
 {
 	/*border:1px red solid;*/
-	right:100px;
+	/*right:100px;*/
 	border-radius:0 40px 40px 0;
 }
 #other
