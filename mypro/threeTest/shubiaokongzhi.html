@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/three.js"></script>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .keyboard,.keyboard>li{
+            display: block;
+            border-radius: 20%;
+            position: absolute;
+        }
+        .keyboard{
+            height: 20%;
+            width: 20%;
+            left: 0;
+            bottom: 0;
+        }
+        .keyboard>li{
+            border: 1px solid #fff;
+            height: 40%;
+            width: 30%;
+            background: rgba(3,3,3,.2);
+            box-sizing: border-box;
+            text-align: center;
+            /*line-height: 300%;*/
+            /*vertical-align: middle;*/
+            padding: 1%;
+            font-size: 2rem;
+            color: #fff;
+            transition: all .3s;
+        }
+        .top0{
+            top:7%;
+        }
+        .cent{
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .bott0{
+            bottom: 7%;
+        }
+        .left0{
+            left:2.5%;
+        }
+        .right0{
+            right: 2.5%;
+        }
+        .bling{
+            /*background: #aaa;*/
+            box-shadow: 0 0 8px 2px #fff;
+        }
+    </style>
+</head>
+<body>
+
+
+<ul class="keyboard">
+    <li class="keyw top0 cent">W</li>
+    <li class="keys bott0 cent">S</li>
+    <li class="keya bott0 left0">A</li>
+    <li class="keyd bott0 right0">D</li>
+</ul>
+
+<script>
+    //var场景
+    var scen=new THREE.Scene();
+    //var 坐标
+    var axes = new THREE.AxisHelper( 20 );
+//    scen.add(axes);
+    //骨架及材质
+    var torus=new THREE.TorusGeometry(30,10,100,50);
+    var pingmian=new THREE.PlaneGeometry(700,700);
+//    var lightCub=new THREE.CubeGeometry(5,5,5);
+    var greymetal=new THREE.MeshLambertMaterial({color:0xaaaaaa, side: THREE.DoubleSide});
+    var redmetal=new THREE.MeshLambertMaterial({color:0xff0000, side: THREE.DoubleSide});
+//    var basic=new THREE.MeshBasicMaterial({color:0xffffff});
+
+    //用网格承接骨架及材质
+    var mesh1=new THREE.Mesh(torus,redmetal);
+    var mesh2=new THREE.Mesh(pingmian,greymetal);
+    mesh1.castShadow=true;
+    mesh1.receiveShadow=true;
+
+    mesh2.rotation.x=1.57;
+    mesh2.position.set(0,-60,0);
+    mesh2.receiveShadow=true;
+//    var meshLight=new THREE.Mesh(lightCub,basic);
+
+    //设置灯光
+    var light=new THREE.SpotLight({color:0xffffff});
+    light.position.set(300,200,300);
+//    light.position.set(50,50,0);
+//    light.distance =20000;
+    light.intensity = 2;
+    light.shadow.target= mesh2;
+    light.castShadow=true;
+
+//    var pointColor = "#ffffff";
+//    var spotLight = new THREE.SpotLight(pointColor);
+//    spotLight.position.set(-40, 60, -10);
+//    spotLight.castShadow = true;
+//    spotLight.shadowCameraNear = 2;
+//    spotLight.shadowCameraFar = 200;
+//    spotLight.shadowCameraFov = 30;
+//    spotLight.target = mesh2;//光照照向地面
+//    spotLight.distance = 0;
+//    spotLight.angle = 0.4;
+//    scen.add(spotLight);
+
+
+
+    //设置环境光
+    var ambiColor = "#8b8a87";
+    var ambientLight = new THREE.AmbientLight(ambiColor);
+//    scen.add(ambientLight);
+
+
+//    var cameraX=0,cameraY=0;cameraStep=0;
+
+    scen.add(mesh1);
+    scen.add(mesh2);
+    scen.add(light);
+
+    //设置相机
+    var camera=new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,1,2000);
+    camera.position.set(0,100,300);
+    camera.lookAt(scen.position);
+
+    //设置阴影投射辅助
+    var helper = new THREE.CameraHelper( light.shadow.camera );
+//    scen.add( helper );
+
+    //渲染并加入dom树
+    var render1=new THREE.WebGLRenderer();
+    render1.setSize(window.innerWidth,window.innerHeight);
+//    render1.shadowMap.enabled=true;
+    render1.render(scen,camera);
+    document.body.appendChild(render1.domElement);
+
+
+
+    //控制方法
+    var turnningR= 0,turnningL= 0,turnningU= 0,turnningD= 0;
+    var w_H=innerHeight;
+    var w_W=innerWidth;
+    var stopU,stopD,stopR,stopL,stopF,stopB,stopmL,stopmR;
+    var movingF=0,movingB=0,movingL=0,movingR=0;
+    var moveStep=3;
+
+    function turnLeft(){
+        if (turnningL == 0) {
+            turnningL=1;
+            turnL();
+        }
+        else{
+        }
+    }
+    function turnL(){
+        stopL=requestAnimationFrame(turnL);
+        camera.rotation.y+=0.01;
+        render1.render(scen,camera);
+    }
+
+    function turnRight(){
+        if (turnningR == 0) {
+            turnningR=1;
+            turnR();
+        }
+        else{
+        }
+    }
+    function turnR(){
+        stopR=requestAnimationFrame(turnR);
+        camera.rotation.y-=0.01;
+        render1.render(scen,camera);
+    }
+
+    function turnUp(){
+        if (turnningU == 0) {
+            turnningU=1;
+            turnU();
+        }
+        else{
+        }
+    }
+    function turnU(){
+        stopU= requestAnimationFrame(turnU);
+        camera.rotation.x+=0.01;
+        render1.render(scen,camera);
+    }
+
+    function turnDown(){
+        if (turnningD == 0) {
+            turnningD=1;
+            turnD();
+        }
+        else{
+        }
+    }
+    function turnD(){
+        stopD= requestAnimationFrame(turnD);
+        camera.rotation.x-=0.01;
+        render1.render(scen,camera);
+    }
+
+    function turnMiddle(){
+        turnningD =0;
+        turnningU =0;
+        window.cancelAnimationFrame(stopD);
+        window.cancelAnimationFrame(stopU);
+    }
+    function turnCenter(){
+        turnningR =0;
+        turnningL =0;
+
+        window.cancelAnimationFrame(stopR);
+        window.cancelAnimationFrame(stopL);
+    }
+
+    function moveFor(){
+        if (movingF == 0) {
+            movingF=1;
+            moveF();
+            $(".keyw").addClass("bling");
+        }
+    }
+    function moveF(){
+        stopF= requestAnimationFrame(moveF);
+        camera.position.z-=moveStep;
+        render1.render(scen,camera);
+    }
+
+    function moveBac(){
+        if (movingB == 0) {
+            movingB=1;
+            moveB();
+            $(".keys").addClass("bling");
+        }
+    }
+    function moveB(){
+        stopB= requestAnimationFrame(moveB);
+        camera.position.z+=moveStep;
+        render1.render(scen,camera);
+    }
+
+    function moveLeft(){
+        if (movingL == 0) {
+        movingL=1;
+        moveL();
+            $(".keya").addClass("bling");
+        }
+    }
+    function moveL(){
+        stopmL= requestAnimationFrame(moveL);
+        camera.position.x-=moveStep;
+        render1.render(scen,camera);
+    }
+
+    function moveRight(){
+        if (movingR == 0) {
+            movingR=1;
+            moveR();
+            $(".keyd").addClass("bling");
+        }
+    }
+    function moveR(){
+        stopmR= requestAnimationFrame(moveR);
+        camera.position.x+=moveStep;
+        render1.render(scen,camera);
+    }
+
+
+
+
+    $(window).on("mousemove",function(e){
+        if(e.clientX<w_W/3){
+            turnLeft();
+        }
+        else if(e.clientX>w_W/3&& e.clientX<w_W/3*2){
+            turnCenter()
+        }
+        else if(e.clientX>w_W/3*2){
+            turnRight();
+        }
+
+
+        if(e.clientY<w_H/3){
+            turnUp();
+        }
+        else if(e.clientY>w_H/3&& e.clientY<w_H/3*2){
+            turnMiddle()
+        }
+        else if(e.clientY>w_H/3*2){
+            turnDown();
+        }
+    });
+    $(window).on("keydown",function(e){
+//        console.log(e.keyCode);
+        switch (e.keyCode){
+            case 87:moveFor();break;
+            case 83:moveBac();break;
+            case 65:moveLeft();break;
+            case 68:moveRight();break;
+        }
+    })
+    $(window).on("keyup",function(e){
+//        console.log(e.keyCode);
+        switch (e.keyCode){
+            case 87:window.cancelAnimationFrame(stopF);movingF=0;$(".keyw").removeClass("bling");break;
+            case 83:window.cancelAnimationFrame(stopB);movingB=0;$(".keys").removeClass("bling");break;
+            case 65:window.cancelAnimationFrame(stopmL);movingL=0;$(".keya").removeClass("bling");break;
+            case 68:window.cancelAnimationFrame(stopmR);movingR=0;$(".keyd").removeClass("bling");break;
+        }
+    })
+</script>
+</body>
+</html>

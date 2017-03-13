@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>hongbao</title>
+    <style type="text/css">
+        *
+        {
+            margin:0;
+            padding: 0;
+        }
+        .bordertest
+        {
+            border: 1px solid black;
+        }
+        .fl
+        {
+            float: left;
+        }
+        .fr
+        {
+            float: right;
+        }
+        .stage
+        {
+            height: 500px;
+            width: 500px;
+            perspective: 800px;
+            margin:50px auto;
+
+
+        }
+        #hongbao
+        {
+            height: 400px;
+            width: 260px;
+            box-shadow: 0 0 40px 20px #cc0000 inset;
+            transform-style: preserve-3d;
+            background: red;
+            position: absolute;
+            left:0;
+            right: 0;
+            top: 0;
+            bottom :0;
+            margin: auto;
+            transform-origin: center;
+            /*transform: rotateX(30deg) ;*/
+        }
+        #top
+        {
+            height: 120px;
+            border-radius: 0 0 50% 50%/0 0 100% 100%;
+            background: #cc0000;
+            transform-origin: top;
+            transition: all .5s;
+        }
+        .roundbutton
+        {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 80px;
+            margin:auto;
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            background: #ffaa00;
+            transition: all .5s;
+        }
+        .transZ
+        {
+            transform: translateZ(30px) scale(1.1);
+        }
+        .disp
+        {
+            transform: translateZ(30px) scale(2);
+            opacity: 0;
+        }
+        .opened
+        {
+            transform: rotateX(160deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="stage">
+    <div id="hongbao">
+        <div id="top"></div>
+        <div class="roundbutton"></div>
+    </div>
+</div>
+
+
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(".roundbutton").click(disp).click(open).click(bonus).hover(pow);
+    $(window).mousemove(function(e){
+        var x=e.clientX,y=e.clientY;
+        var H=window.innerHeight;
+        var W=window.innerWidth;
+//        console.log(H,W);
+        $("#hongbao").css("transform","rotateX("+-(y-H/2)/H*60+"deg) rotateY("+(x-W/2)/W*60+"deg)");
+    });
+
+    function pow()
+    {
+        $(this).toggleClass("transZ");
+    }
+    function disp()
+    {
+        $(this).addClass("disp");
+        var t=setTimeout("$('.roundbutton').remove()",600);
+    }
+    function open()
+    {
+        $('#top').addClass('opened');
+    }
+    function bonus()
+    {
+//        var x=randomNum(0,100);
+        var time=setTimeout("alert('您获得了'+randomNum(0,100)+'元的红包！！！')",300);
+    }
+    function randomNum(min,max)
+    {
+        var output=Math.floor(Math.random()*(max-min)+min);
+        return output;
+    }
+
+</script>
+
+
+
+</body>
+</html>

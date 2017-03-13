@@ -93,7 +93,7 @@ a
 {
 	opacity:0;
 }
-#otherwork>ul>li>a:hover #liimg1,#otherwork>ul>li>a:hover #liimg2,#otherwork>ul>li>a:hover #liimg3,#otherwork>ul>li>a:hover #liimg4
+#otherwork>ul>li>a:hover [id^=liimg]
 {
 	transform:scale(1.05);
 }
@@ -135,8 +135,23 @@ a
 	background:url("../images/work_jd2.png") center;
 	background-size: cover;
 }
+#liimg5
+{
+	background:url("../images/work_hongbao.png") center;
+	background-size: cover;
+}
+#liimg6
+{
+	background:url("../images/work_3dcontrol.png") center;
+	background-size: cover;
+}
+#liimg7
+{
+	background:url("../images/work_halo.png.png") center;
+	background-size: cover;
+}
 
-#litext1,#litext2,#litext3,#litext4
+[id^=litext]
 {
 	height:120px;
 	width:230px;

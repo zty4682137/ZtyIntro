@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    var scen=new THREE.Scene();
+
+    var torus=new THREE.TorusGeometry(30,10,100,50);
+    var lightCub=new THREE.CubeGeometry(5,5,5);
+    var jinshu=new THREE.MeshPhongMaterial({color:0xaaaaaa});
+    var basic=new THREE.MeshBasicMaterial({color:0xffffff});
+
+    var mesh1=new THREE.Mesh(torus,jinshu);
+    var meshLight=new THREE.Mesh(lightCub,basic);
+
+    var light=new THREE.PointLight({color:0xffffff});
+    light.position.set(300,200,300);
+    var cameraX=0,cameraY=0;cameraStep=0;
+
+    scen.add(mesh1);
+    scen.add(meshLight);
+    scen.add(light);
+
+    var camera=new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,1,2000);
+    camera.position.set(0,0,300);
+    camera.lookAt(scen.position);
+
+    var render1=new THREE.WebGLRenderer();
+    render1.setSize(window.innerWidth,window.innerHeight);
+    render1.render(scen,camera);
+    document.body.appendChild(render1.domElement);
+
+    function ani(){
+        requestAnimationFrame(ani);
+        cameraStep+=0.01;
+        cameraX=100*Math.cos(cameraStep);
+        cameraY=100*Math.sin(cameraStep);
+
+//        mesh1.rotation.x +=0.01;
+//        camera.position.set(i,0,100-(i*i));
+//        camera.position.set(cameraX,0,cameraY);
+        light.position.set(cameraX,0,cameraY);
+        meshLight.position.set(cameraX,0,cameraY);
+        camera.lookAt(scen.position);
+        render1.render(scen,camera);
+//        console.log(cameraX,cameraY);
+    }
+    ani();
+</script>
+</body>
+</html>
