@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GotoSwimYang</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        *
+        {
+            cursor: none;
+            color: #FFFFFF;
+            font-family:"microsoft yahei";
+        }
+        body
+        {
+            /*background-image: linear-gradient(180deg, #337ab7 0%, rgb(34,34,187) 100%);*/
+            background-image:linear-gradient(to bottom,#0E8EEA 0%,#033E83 100%);//使用
+            position: relative;
+            overflow: hidden;
+        }
+        .mous
+        {
+            height: 7px;
+            width: 7px;
+            background: #FFFFFF;
+            box-shadow: 0 0 60px 20px #FFFFFF;
+            position: absolute;
+            z-index: 1000;
+            border-radius: 50%;
+        }
+        .container
+        {
+            /*width: 100%;*/
+            min-height:800px;
+            /*overflow: hidden;*/
+            /*background-image:linear-gradient(to bottom,#333 50%,#000 100%);*/
+        }
+        .babo
+        {
+            border-radius: 50%;
+            position: absolute;
+            overflow: hidden;
+        }
+        .babolight
+        {
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            height: 0;
+            width: 0;
+            left:0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .transform
+        {
+            transition: all .3s;
+        }
+        .tshadowAnimate:hover
+        {
+            text-shadow:0 0 10px #fff;
+            transform: scale(1.1);
+            /*font-weight:bold ;*/
+        }
+        #entertext,#entertext2
+        {
+            display: none;
+            color: #E68324;
+        }
+
+        @keyframes pow {
+            15%{transform: scale(.85)}
+            100%{transform: scale(2);opacity: 0}
+        }
+        .font9rem
+        {
+            font-size: 9rem;
+        }
+        .margintop20
+        {
+            margin-top:20%;
+        }
+        /*.d1*/
+        /*{*/
+            /*background: rgb(0,0,153);*/
+        /*}*/
+        /*.d2*/
+        /*{*/
+            /*background: rgb(34,34,187);*/
+        /*}*/
+        /*.d3*/
+        /*{*/
+            /*background: rgb(68,68,221);*/
+        /*}*/
+        /*.d4*/
+        /*{*/
+            /*background: rgb(102,102,255);*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-xs-8 margintop20">
+            <h1 class="font9rem">欢迎来到海底世界</h1>
+            <h2>戳破10个泡泡进入主页！</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+            <h3>你已经戳破了<span class="font9rem" id="powNumspan">0</span>个泡泡！</h3>
+            <h1 class="tshadowAnimate transform" id="entertext">进入主页</h1>
+            <h1 class="tshadowAnimate transform" id="entertext2">进入彩蛋主页</h1>
+        </div>
+    </div>
+
+    <!--<a href="#">开始新的旅程</a>-->
+    <!--<h3 onclick="drawBabo(3,100,200)">生成新气泡</h3>-->
+</div>
+<div class="mous"></div>
+
+
+<script>
+    var rnum=function(min,max){return Math.floor(Math.random()*(max-min)+min);};
+    var w_w=window.innerWidth;
+    var w_h=window.innerHeight;
+    var powNum=0;
+
+    //破裂效果
+    function pow(that) {
+        $(that).css("animation","pow 1s");
+        setTimeout(function(){
+            $(that).remove();
+        },1000);
+
+    }
+    //创造泡泡
+    function creatBabo(w_w,w_h,argu){
+        var baboligth=$('<div class="babolight"></div>').css("box-shadow","0 0 "+argu*0.55+"px "+argu*0.31+"px #fff");
+
+        var X=rnum(-argu/2,w_w-argu/2);
+        var Y=rnum(-argu/2,w_h-argu/2);
+        var babo=$('<div class="babo" argu='+argu+' posX='+(X+argu/2)+' posY='+(Y+argu/2)+'></div>').css({
+            height:argu+"px",
+            width:argu+"px",
+//            background:"#0ff",
+            left:X+"px",
+            top:Y+"px",
+//            "box-shadow":argu*0.05+"px "+argu*0.05+"px "+argu*0.45+"px "+(-argu*0.15)+"px #005A98 inset",
+            "box-shadow":argu*0.05+"px "+argu*0.05+"px "+argu*0.45+"px "+(-argu*0.15)+"px #033674 inset",
+            opacity:.7
+        });
+        babo.append(baboligth);
+        return babo;
+    }
+    //传进babo个数和气泡大小范围
+    function drawBabo(num,min,max){
+        for(var i=0;i<num;i++)
+        {
+            $('.container').append(creatBabo(w_w,w_h,rnum(min,max)));
+        }
+    }
+
+
+
+    drawBabo(7,100,200);
+
+    //鼠标移动事件
+    $(window).mousemove(function(e){
+        var mouX= e.pageX;
+        var mouY= e.pageY;
+        var babos=$('.babo');
+        $('.mous').css({
+            left:mouX+4,
+            top:mouY+4
+        });
+        $.each(babos,function(k,v1){
+            var v=$(v1);
+            var baboX=v.attr("posX");
+            var baboY=v.attr("posY");
+            var argu=v.attr("argu");
+
+            var chaX=mouX-baboX;
+            var chaY=mouY-baboY;
+            v.children('.babolight').css('left',chaX/4).css('top',chaY/4);
+//            v.css("box-shadow",chaX*0.05+"px "+chaY*0.05+"px "+argu*0.45+"px "+(-argu*0.15)+"px #005A98 inset");
+            v.css("box-shadow",chaX*0.05+"px "+chaY*0.05+"px "+argu*0.45+"px "+(-argu*0.15)+"px #03378D inset");
+        });
+    });
+    //戳破泡泡
+    $(".container").on("mouseenter",".babo",function(){
+        if($(this).css("animation").substr(0,4)=="none")
+        {
+            pow(this);
+            drawBabo(1,100,200);
+            powNum++;
+            $("#powNumspan").html(powNum);
+            if(powNum>=10) {
+                $("#entertext").css("display","block");
+                if(powNum>=100){
+                    $("#entertext2").css("display","block");
+                }
+            }
+        }
+    });
+    //跳转绑定
+    $('#entertext').click(function(){
+       window.location.href="main.html";
+    });
+    $('#entertext2').click(function(){
+        window.location.href="zty.html";
+    });
+
+</script>
+
+
+
+
+
+<!--bootlint自检-->
+<!--<script>   (function () {-->
+    <!--var s = document.createElement("script");-->
+    <!--s.onload = function () {-->
+        <!--bootlint.showLintReportForCurrentDocument([]);-->
+    <!--};-->
+    <!--s.src = "js/bootlint.js";-->
+    <!--document.body.appendChild(s)-->
+<!--})(); </script>-->
+
+</body>
+</html>

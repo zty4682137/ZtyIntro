@@ -147,7 +147,22 @@ a
 }
 #liimg7
 {
-	background:url("../images/work_halo.png.png") center;
+	background:url("../images/work_halo.png") center;
+	background-size: cover;
+}
+#liimg8
+{
+	background:url("../images/work_guitar.png") center;
+	background-size: cover;
+}
+#liim9
+{
+	background:url("../images/work_swim.png") center;
+	background-size: cover;
+}
+#liimg10
+{
+	background:url("../images/work_dajidian.png") center;
 	background-size: cover;
 }
 

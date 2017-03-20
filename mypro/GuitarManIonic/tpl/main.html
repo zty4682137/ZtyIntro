@@ -1,0 +1,45 @@
+<ion-side-menus>
+    <div ng-include="'tpl/header.html'"></div>
+
+    <ion-side-menu side="left" class="positive-bg">
+        <button menu-close>close</button>
+        <ul class="list list-inset">
+            <li class="item" ui-sref="main.classic" ng-click="load()">古典吉他</li>
+            <li class="item" ui-sref="main.pop" ng-click="load()">民谣吉他</li>
+            <li class="item" ui-sref="main.electro" ng-click="load()">电吉他</li>
+            <li class="item" ui-sref="main.base" ng-click="load()">贝斯</li>
+            <li class="item" ui-sref="main.ukulele" ng-click="load()">尤克里里</li>
+            <li class="item" ui-sref="main.travel" ng-click="load()">静音吉他</li>
+        </ul>
+
+    </ion-side-menu>
+
+    <ion-side-menu-content>
+        <!--<ion-header-bar>-->
+            <!--<button class="button button-assertive"-->
+                    <!--menu-toggle="left">-->
+                <!--open-->
+            <!--</button>-->
+            <!--<h1>header</h1>-->
+        <!--</ion-header-bar>-->
+        <ion-content class="has-header has-footer">
+            <label class="item item-input">
+                <input type="text" placeholder="请输入吉他名称或型号..." ng-model="inputTxt.kw"/>
+                <i class="icon ion-search"></i>
+            </label>
+
+            <div class="row">
+                <div class="col">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-side-menu-content>
+
+
+
+
+
+
+    <div ng-include="'tpl/footer.html'"></div>
+</ion-side-menus>

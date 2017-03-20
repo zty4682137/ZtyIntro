@@ -1,0 +1,19 @@
+<ul class="list">
+    <!--<li ng-repeat="guitar in guitarArr" class="item" ui-sref="detail({did:'{{guitar.did}}'})" ng-click="load()">-->
+    <li ng-repeat="guitar in guitarArr" class="item" ui-sref="detail({id:'{{guitar.did}}'})" ng-click="load()">
+        <div class="row">
+            <div class="col col-20">
+                <img  class="full-image" ng-src="res/img/{{guitar.img_sm}}" alt=""/>
+            </div>
+            <div class="col">
+                <h3><b>{{guitar.name}}</b></h3>
+                <p>{{guitar.material}}</p>
+                <hr/>
+                <b>￥{{guitar.price}}</b>
+            </div>
+        </div>
+    </li>
+</ul>
+<div ng-show="nomore" class="item-divider item energized-bg text-center">没有更多了</div>
+<ion-infinite-scroll on-infinite="more()"></ion-infinite-scroll>
+<!--<button class="button-positive button button-block" ng-click="more()">加载更多</button>-->

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title></title>
+    <link rel="stylesheet" href="css/GuitarMan.css"/>
+    <script src="js/ionic.bundle.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
+</head>
+<body ng-controller="parentCtrl">
+
+
+    <div ui-view></div>
+
+
+    <script>
+        var app=angular.module('myapp',['ionic']);
+        app.config(function($stateProvider,$urlRouterProvider){
+            $stateProvider
+                    .state('start',{url:'/guitarStart',templateUrl:'tpl/start.html'})
+                    .state('main',{url:'/guitarMain',templateUrl:'tpl/main.html',controller:'mainctrl'})
+                    .state('order',{url:'/guitarOrder',templateUrl:'tpl/order.html'})
+                    .state('myorder',{url:'/guitarMyorder',templateUrl:'tpl/myorder.html'})
+                    .state('detail',{url:'/guitarDetail/:id',templateUrl:'tpl/detail.html',controller:'detailctrl'})
+                    .state('main.pop',{url:'/pop',templateUrl:'tpl/pop.html'})
+                    .state('main.classic',{url:'/classic',templateUrl:'tpl/classic.html'})
+                    .state('main.electro',{url:'/electro',templateUrl:'tpl/electro.html'})
+                    .state('main.base',{url:'/base',templateUrl:'tpl/base.html'})
+                    .state('main.ukulele',{url:'/ukulele',templateUrl:'tpl/ukulele.html'})
+                    .state('main.travel',{url:'/travel',templateUrl:'tpl/travel.html'});
+            $urlRouterProvider.otherwise('/guitarStart');
+        });
+
+        app.controller('parentCtrl',['$scope','$timeout','$ionicLoading',function($scope,$timeout,$ionicLoading){
+            $scope.load=function(){
+                $ionicLoading.show({
+                    template:"Loading..."
+                });
+                $timeout(function(){$ionicLoading.hide()},300);
+            }
+        }]);
+        app.run(function($http){
+            $http.defaults.headers.post={"Content-Type":"application/x-www-form-urlencoded"};
+        });
+
+
+
+
+
+
+        app.controller("mainctrl",["$rootScope","$scope","$http",function($rootScope,$scope,$http){
+            $rootScope.guitarArr=[];
+            $scope.inputTxt={kw:''};
+                    $scope.$watch('inputTxt.kw',function(){
+                        console.log($scope.inputTxt.kw);
+                        if($scope.inputTxt.kw=="")
+                        {
+                            $rootScope.guitarArr=[];
+                            $scope.pagenum=1;
+                            $scope.more();
+                        }
+                        else
+                        {
+                            $http.post('data/likesel.php', $.param({kw:$scope.inputTxt.kw})).success(function(data){
+                                $rootScope.guitarArr=[];
+                                angular.forEach(data,function(v,k){
+                                    $rootScope.guitarArr.push(v);
+                                });
+                                if(data.length!=3)
+                                {$scope.nomore=true;}
+                                $scope.pagenum++;
+                            })
+                        }
+
+                    });
+//            $scope.pagenum=2;
+            $scope.more=function(){
+                $http.post('data/more.php', $.param({pagenum:$scope.pagenum})).success(function(data){
+                    angular.forEach(data,function(v,k){
+                        $rootScope.guitarArr.push(v);
+                    });
+                    if(data.length<3)
+                    {$scope.nomore=true;}
+                    if(data.length>0)
+                    {$scope.pagenum++;}
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+//                    else4
+//                    {$scope.pagenum++;$scope.$broadcast('scroll.infiniteScrollComplete');}
+
+                })
+            };
+        }]);
+        app.controller("detailctrl",["$rootScope","$scope","$stateParams","$state",function($rootScope,$scope,$stateParams,$state){
+//            console.log($stateParams);
+            if($rootScope.guitarArr!=undefined){
+                angular.forEach($rootScope.guitarArr,function(v,k){
+                    if ($stateParams.id == v.did) {
+                        $rootScope.chooseGuitar=v;
+                    }
+                });
+            }
+            else
+            {
+                $state.go('main');
+            }
+
+//            console.log($rootScope.chooseGuitar);
+        }])
+
+
+
+
+    </script>
+</body>
+</html>

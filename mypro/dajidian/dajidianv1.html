@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	body
+	{
+		font-family:"microsoft yahei"
+	}
+	.contain
+	{
+		height:100%;
+		width:100%;
+		position:relative;
+	}
+	.blank
+	{
+		height:366px;
+		width:480px;
+		/*border:2px #000 solid;*/
+		box-shadow:7px 7px 2px -2px #444;
+		position:absolute;
+		left:400px;
+		top:200px;
+		border-radius:10px;
+		background-color:#bbada0;
+	}
+	.cell
+	{
+		width:100px;
+		height:100px;
+		position:absolute;
+		/*border:1px #000 solid;*/
+		font-size:60px;
+		text-align:center;
+		line-height:100px;
+		color:#fff;
+		border-radius:6px;
+		background:#eee3da;
+		box-shadow:3px 3px 3px -2px #000;
+	}
+	.soundtype
+	{
+		width:480px;
+		height:50px;
+		box-shadow:7px 7px 2px -2px #444;
+		position:absolute;
+		left:400px;
+		top:137px;
+		border-radius:10px;
+		background-color:#bbada0;
+	}
+	.soundtypebtn
+	{
+		width:40px;
+		height:40px;
+		float:left;
+		text-align:center;
+		line-height:40px;
+		color:#000;
+		border-radius:6px;
+		background:#eee3da;
+		box-shadow:3px 3px 3px -2px #000;
+		margin:5px 4px;
+		font-weight:bold;
+	}
+	.leftcontrol
+	{
+		height:431px;
+		width:120px;
+		box-shadow:7px 7px 2px -2px #444;
+		position:absolute;
+		left:265px;
+		top:137px;
+		border-radius:10px;
+		background-color:#bbada0;
+	}
+	.leftbtn
+	{
+		width:100px;
+		height:60px;
+		text-align:center;
+		line-height:60px;
+		font-size:20px;
+		color:#000;
+		border-radius:6px;
+		background:#eee3da;
+		box-shadow:3px 3px 3px -2px #000;
+		margin:10px 8px;
+		font-weight:bold;
+	}
+	.press
+	{
+		background:#f2b179;
+		box-shadow:3px 3px 3px -2px #000 inset;
+	}
+	[class1^="r0"]{top:16px;}
+	[class1^="r1"]{top:132px;}
+	[class1^="r2"]{top:248px;}
+
+	[class1$="0"]{left:16px}
+	[class1$="1"]{left:132px}
+	[class1$="2"]{left:248px}
+	[class1$="3"]{left:364px}
+
+	
+  </style>
+ </head>
+ <body>
+  <div class="contain">
+	<div class="soundtype">
+		<div class="soundtypebtn" id="s49" soundattr="" title="架子鼓">1</div>
+		<div class="soundtypebtn" id="s50" soundattr="" title="手鼓军鼓">2</div>
+		<div class="soundtypebtn" id="s51" soundattr="" title="贝斯">3</div>
+		<div class="soundtypebtn" id="s52" soundattr="" title="电吉他">4</div>
+		<div class="soundtypebtn" id="s53" soundattr="" title="木吉他">5</div>
+		<div class="soundtypebtn" id="s54" soundattr="" title="钢琴">6</div>
+		<div class="soundtypebtn" id="s55" soundattr="" title="马林巴琴">7</div>
+		<div class="soundtypebtn" id="s56" soundattr="" title="DJ打碟">8</div>
+		<div class="soundtypebtn" id="s57" soundattr="" title="电音">9</div>
+		<div class="soundtypebtn" id="s48" soundattr="" title="其他音效">0</div>
+	</div>
+	<div class="leftcontrol">
+		<div class="leftbtn" id="l81">循环Q</div>
+		<div class="leftbtn" id="l87">录制W</div>
+		<div class="leftbtn" id="l69">取消循环E</div>
+	</div>
+  	<div class="blank">
+  		<div id="c85" class1="r00" class="cell">U</div>
+  		<div id="c73" class1="r01" class="cell">I</div>
+  		<div id="c79" class1="r02" class="cell">O</div>
+  		<div id="c80" class1="r03" class="cell">P</div>
+
+  		<div id="c74" class1="r10" class="cell">J</div>
+  		<div id="c75" class1="r11" class="cell">K</div>
+  		<div id="c76" class1="r12" class="cell">L</div>
+  		<div id="c186" class1="r13" class="cell">;</div>
+
+  		<div id="c78" class1="r20" class="cell">N</div>
+  		<div id="c77" class1="r21" class="cell">M</div>
+  		<div id="c188" class1="r22" class="cell">,</div>
+  		<div id="c190" class1="r23" class="cell">.</div>
+  	</div>
+  </div>
+
+
+
+
+
+	<audio id="msc85" preload="auto">
+	<!-- preload值可以设置为preload -->
+		<source src="projecttest\res\bg.mp3"/>
+	</audio>
+	
+
+
+
+
+
+
+
+
+
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+	$(window).keydown(function(e){	
+		$("#s"+e.keyCode).addClass("press").siblings().removeClass("press");//根据按键unicode找到乐器素材元素
+		$("#c"+e.keyCode).addClass("press");//找到主按键 添加
+		$("#l"+e.keyCode).addClass("press");
+		//$("#msc"+e.keyCode).
+		var x=document.getElementById("msc"+e.keyCode);
+		x.play();
+
+
+		console.log(e.keyCode);//测试代码
+	})
+	$(window).keyup(function(e){		
+		$("#c"+e.keyCode).removeClass("press");
+		$("#l"+e.keyCode).removeClass("press");
+		var y=document.getElementById("msc"+e.keyCode);
+		y.pause();
+		y.currentTime=0;
+	})
+	
+
+	//"U"-->>>unicode:"U".charCodeAt().toString(//10);
+	//unicode--->"U":String.fromCharCode(85);
+	//内容过滤器:("parent>:contain('xxxx')")
+	
+	//$(window).mousemove(function(e){
+		//console.log(e.clientX,e.clientY);
+	//})
+	
+	
+  </script>
+ </body>
+</html>

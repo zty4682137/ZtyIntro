@@ -1,0 +1,31 @@
+<div ng-include="'tpl/header.html'"></div>
+
+<ion-content class="has-header has-footer">
+
+    <div class="list card">
+        <div class="item item-avatar"><a ui-sref="main">首页</a> / 详情</div>
+        <div class="item item-body">
+            <h1><b>{{chooseGuitar.name}}</b></h1>
+            <hr/>
+            <img class="full-image" ng-src="res/img/{{chooseGuitar.img_lg}}" alt=""/>
+            <hr/>
+            <h4>{{chooseGuitar.material}}</h4>
+            <p>{{chooseGuitar.detail}}</p>
+            <hr/>
+            <h4 class="text-danger">￥{{chooseGuitar.price}}</h4>
+
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" ui-sref="order">
+                <i class="icon ion-thumbsup"></i>
+                我要买
+            </a>
+            <a class="tab-item" ui-sref="main">
+                <i class="icon ion-share"></i>
+                我再看看
+            </a>
+        </div>
+    </div>
+</ion-content>
+
+<div ng-include="'tpl/footer.html'"></div>

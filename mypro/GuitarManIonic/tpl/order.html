@@ -1,0 +1,44 @@
+<div ng-include="'tpl/header.html'"></div>
+
+<ion-content class="has-header has-footer">
+
+
+<!--<div class="list">-->
+    <!--<label class="item item-radio">-->
+        <!--<input type="radio" name="sex"/>-->
+        <!--<div class="item-content">男</div>-->
+        <!--<i class="radio-icon ion-checkmark"></i>-->
+    <!--</label>-->
+    <!--<label class="item item-radio">-->
+        <!--<input type="radio" name="sex">-->
+        <!--<div class="item-content">女</div>-->
+    <!--</label>-->
+<!--</div>-->
+
+    <div class="list list-inset">
+        <label class="item item-input">
+            <span class="input-label">联系人</span>
+            <input type="text" placeholder="联系人" id="uname" ng-model="uname">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">性别</span>
+        </label>
+        <ion-list>
+            <ion-radio>男</ion-radio>
+            <ion-radio>女</ion-radio>
+        </ion-list>
+
+        <label class="item item-input">
+            <span class="input-label">联系电话</span>
+            <input type="text" placeholder="联系电话">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">送餐地址</span>
+            <textarea name="" id="" cols="30" rows="10"  placeholder="送餐地址" ng-model="detail"></textarea>
+        </label>
+        <button class="button button-balanced button-block"  ui-sref="order">确定下单</button>
+    </div>
+
+</ion-content>
+
+<div ng-include="'tpl/footer.html'"></div>
