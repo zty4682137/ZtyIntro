@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <style>
+	  body{
+		  -moz-user-select: none; /*火狐*/
+		  -webkit-user-select: none; /*webkit浏览器*/
+		  -ms-user-select: none; /*IE10*/
+		  -khtml-user-select: none; /*早期浏览器*/
+		  user-select: none;
+	  }
+  	*{
+		padding:0;
+		margin:0;
+		font-family:"microsoft yahei";
+	}
+	#stage
+	{
+		left: 0;
+		right: 0;
+		top:0;
+		bottom: 0;
+		margin:0;
+		/*border:1px #000 solid;*/
+		perspective:1000px;
+		position:absolute;
+		overflow:hidden;
+		background-image:linear-gradient(to bottom,#333 50%,#000 100%);
+	}
+	.left,.right
+	{
+		width:10%;
+		height:100%;
+		position:absolute;
+		/*border:1px solid red;*/
+		transition:all .5s;
+	}
+	.left
+	{
+		left:0;
+	}
+	.right
+	{
+		top:0;
+		right:0;
+	}
+	.btnon
+	{
+		background:#fff;
+		opacity:.2;
+	}
+	.btnoff
+	{
+		background:#aaa;
+		opacity: .2;
+	}
+	#father
+	{
+		height:60%;
+		width:60%;
+		margin:15rem auto 0;
+		transform-style:preserve-3d;
+		position:relative;
+		/*animation:roll  5s  linear infinite;*/
+		/*border:1px solid red;*/
+		transform:rotatex(15deg);
+		transition:all 1s;
+
+	}
+	#father>div
+	{
+		height: 20rem;
+		width:14rem;
+		left:0;top:0;right:0;bottom:0;
+		margin:auto;
+		position:absolute;
+		border-radius:7px;
+		transition:all .5s; 
+		overflow:hidden;
+		/*background:#C1A774;*/
+	}
+	.light
+	{
+		background:#fff;
+		height:50px;
+		width:100px;
+		border-radius:50%;
+		position:absolute;
+		left:8px;
+		top:-55px;
+		opacity:0;
+		box-shadow:0 0 0 0 #fff;
+		transition:all 4s 0.5s;
+	}
+	.lighton
+	{
+		opacity:1;
+		box-shadow:0 0 150px 120px #fff;
+	}
+	
+	.img1
+	{
+		transform:translatez(30rem);
+		animation:shake1 1s;
+		/*background:#dd3333;*/
+		background:#F0AD4E;
+	}
+	.img2
+	{
+		transform:rotatey(120deg) translatez(30rem);
+		background:#555;
+		animation:shake2 2s;
+		opacity:.3;
+	}
+	.img0
+	{
+		transform:rotatey(240deg) translatez(30rem);
+		background:#555;
+		animation:shake3 3s;
+		opacity:.3;
+	}
+
+	@keyframes shake1
+	{
+		0%{transform:translatez(200px);}
+		100%{transform:rotatey(0deg) translatez(30rem);}
+	}
+	@keyframes shake2
+	{
+		0%{transform:translatez(200px);}
+		100%{transform:rotatey(120deg) translatez(30rem);}
+	}
+	@keyframes shake3
+	{
+		0%{transform:translatez(200px);}
+		100%{transform:rotatey(240deg) translatez(30rem);}
+	}
+	h1
+	{
+		text-align:center;
+		line-height:3rem;
+		margin:6rem auto 2rem;
+		cursor: default;
+	}
+	input 
+	{
+		display:block;
+		margin:1rem auto;
+		width:55%;
+		border-radius:.2rem;
+		box-shadow:1px 1px 5px 0 inset;
+		border:none;
+		padding:5px;
+		transition:all 0.5s;
+	}
+	input:focus
+	{
+		box-shadow:3px 3px 5px 0 inset;
+	}
+	#father button
+	{
+		display: block;
+		margin: 1rem auto 0;
+		width:55%;
+		border-radius:4px;
+		padding:2px;
+		box-shadow:4px 4px 3px -3px #000;
+		cursor: pointer;
+		background: #ddd;
+		transition: all .3s;
+	}
+	#father button:hover{
+		background: #bbb;
+	}
+	/*#father span*/
+	/*{*/
+		/*line-height:10px;*/
+		/*font-size:10px;*/
+	/*}*/
+
+	@keyframes roll
+	{
+		100%{transform:rotatey(360deg);}
+	}
+	
+  </style>
+ </head>
+ <body>
+ 
+ <div id="stage">
+	<div class="left btnoff"></div>
+	 <div id="father">
+		<div class="img1"><div class="light lighton"></div><h1>登录</h1><form action=""><input type="text" name="user" placeholder="用户名/邮箱"><input name="pwd" type="password" placeholder="密码"><button type="submit">登录</button></form></div>
+		<div class="img2"><div class="light"></div><h1>注册</h1><form action="post"><input type="text" placeholder="用户名/邮箱"><input type="password"	placeholder="至少6位字母和数字"><button>注册</button></form></div>
+		<div class="img0"><div class="light"></div><h1>打豆豆</h1>我是来卖萌的</div>
+	  </div>
+	  
+	  <div class="right btnoff"></div>
+ </div>
+ 
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		var $father=$("#father");
+		var state=1;
+		$(".right").click(turnright).hover(btnon,btnoff);
+		$(".left").click(turnleft).hover(btnon,btnoff);
+		document.onkeydown=function(e)
+		{
+			switch (e.keyCode)
+			{
+			case 37: turnleft();break;
+			case 39: turnright();break;
+			}
+		}
+		function btnon()
+		{
+			$(this).addClass("btnon").removeClass("btnoff");
+
+		}
+		function btnoff()
+		{
+			$(this).addClass("btnoff").removeClass("btnon");
+		}
+		function turnright()
+		{
+			
+			if (state==0)
+			{	state++;
+				$father.css("transform","rotatex(15deg) rotatey(0deg)");
+				$(".img1").css("background","#F0AD4E").css("opacity","1");
+				$(".img0").css("background","#555").css("opacity",".3");
+				$(".left").css("opacity",".3");
+				$(".img0 .light").toggleClass("lighton");
+				$(".img1 .light").toggleClass("lighton");
+				
+			}
+			else if (state==1)
+			{
+				state++;
+				$father.css("transform","rotatex(15deg) rotatey(-120deg)");
+				$(".img2").css("background","#5BC0DE").css("opacity","1");
+				$(".img1").css("background","#555").css("opacity",".3");
+				$(".right").css("opacity","0");
+				$(".img1 .light").toggleClass("lighton");
+				$(".img2 .light").toggleClass("lighton");
+			}
+		}
+		function turnleft()
+		{
+			if (state==1)
+			{
+				state--;
+				$father.css("transform","rotatex(15deg) rotatey(120deg)");
+				$(".img1").css("background","#555").css("opacity",".3");
+				$(".img0").css("background","#D9534F").css("opacity","1");
+				$(".left").css("opacity","0");
+				$(".img1 .light").toggleClass("lighton");
+				$(".img0 .light").toggleClass("lighton"); 
+			}
+			else if (state==2)
+			{
+				state--;
+				$father.css("transform","rotatex(15deg) rotatey(0deg)");
+				$(".img2").css("background","#555").css("opacity",".3");
+				$(".img1").css("background","#F0AD4E").css("opacity","1");
+				$(".right").css("opacity",".3");
+				$(".img1 .light").toggleClass("lighton");
+				$(".img2 .light").toggleClass("lighton");
+			}
+		}
+		console.log($father.css("transform"));
+
+		var str=new Date();
+		console.log(str);
+
+		var s = "2005-12-15 09:41:30";
+//		var d = new Date(Date.parse(s.replace(/-/g, "/"))).getTime();
+		var d = Date.parse(s.replace(/-/g, "/"));
+		console.log(d);
+
+//		var start="{{$hitem->start_time}}";
+//		console.log(start);
+	</script>
+ </body>
+</html>

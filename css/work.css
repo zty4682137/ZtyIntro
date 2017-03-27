@@ -170,6 +170,11 @@ a
 	background:url("../images/work_2048.png") center;
 	background-size: cover;
 }
+#liimg11
+{
+	background:url("../images/work_login3D.png") center;
+	background-size: cover;
+}
 
 [id^=litext]
 {

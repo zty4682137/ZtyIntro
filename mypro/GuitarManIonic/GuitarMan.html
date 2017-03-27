@@ -52,6 +52,7 @@
         app.controller("mainctrl",["$rootScope","$scope","$http",function($rootScope,$scope,$http){
             $rootScope.guitarArr=[];
             $scope.inputTxt={kw:''};
+//            $scope.type="";
                     $scope.$watch('inputTxt.kw',function(){
                         console.log($scope.inputTxt.kw);
                         if($scope.inputTxt.kw=="")
@@ -63,6 +64,7 @@
                         else
                         {
                             $http.post('data/likesel.php', $.param({kw:$scope.inputTxt.kw})).success(function(data){
+                                console.log(data);
                                 $rootScope.guitarArr=[];
                                 angular.forEach(data,function(v,k){
                                     $rootScope.guitarArr.push(v);
@@ -95,7 +97,7 @@
 //            console.log($stateParams);
             if($rootScope.guitarArr!=undefined){
                 angular.forEach($rootScope.guitarArr,function(v,k){
-                    if ($stateParams.id == v.did) {
+                    if ($stateParams.id == v.id) {
                         $rootScope.chooseGuitar=v;
                     }
                 });
