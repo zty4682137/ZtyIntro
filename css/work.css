@@ -41,6 +41,9 @@ a
 	text-align:left;
 	/*font-family:"microsoft yahei";*/
 }
+#mainworktext p{
+	text-indent: 2rem;
+}
 #mainwork:hover
 {
 	border:1px solid #999;
