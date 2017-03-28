@@ -37,7 +37,7 @@
             transition: all .3s;
         }
         .top0{
-            top:7%;
+            top:3%;
         }
         .cent{
             left: 0;
@@ -53,22 +53,56 @@
         .right0{
             right: 2.5%;
         }
+        .keyboard .looking{
+            background:#fff;
+            color: #fa0000;
+        }
         .bling{
             /*background: #aaa;*/
             box-shadow: 0 0 8px 2px #fff;
         }
+
+        h1{
+            position: absolute;
+            color: #fff;
+            text-align: center;
+        }
+        /*.panel{*/
+        /*color: #fff;*/
+        /*position: absolute;*/
+        /*list-style: none;*/
+        /*background: rgba(255,255,255,.3);*/
+        /*padding:2% 1%;*/
+        /*border-radius: .5rem;*/
+        /*}*/
     </style>
 </head>
 <body>
 
-
+<h1 class="top0 cent">WSAD控制前后左右视角，Q键开启锁定中心视角</h1>
 <ul class="keyboard">
+    <li class="keyq top0 left0">Q</li>
+    <li class="keye top0 right0">E</li>
     <li class="keyw top0 cent">W</li>
     <li class="keys bott0 cent">S</li>
     <li class="keya bott0 left0">A</li>
     <li class="keyd bott0 right0">D</li>
 </ul>
-
+<!--<ul class="panel right0 top0">-->
+    <!--<li>控制选项</li>-->
+    <!--<li>-->
+        <!--<lable for="lookat">是否看向原点</lable>-->
+        <!--<input id="lookat"  type="checkbox"/>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<lable for="">123</lable>-->
+        <!--<input id=""  type="checkbox"/>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<lable for="">123</lable>-->
+        <!--<input id=""  type="checkbox"/>-->
+    <!--</li>-->
+<!--</ul>-->
 <script>
     //var场景
     var scen=new THREE.Scene();
@@ -131,8 +165,8 @@
 
     //设置相机
     var camera=new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,1,2000);
-    camera.position.set(0,100,300);
-    camera.lookAt(scen.position);
+    camera.position.set(0,50,300);
+//    camera.lookAt(scen.position);
 
     //设置阴影投射辅助
     var helper = new THREE.CameraHelper( light.shadow.camera );
@@ -154,6 +188,7 @@
     var stopU,stopD,stopR,stopL,stopF,stopB,stopmL,stopmR;
     var movingF=0,movingB=0,movingL=0,movingR=0;
     var moveStep=3;
+    var lookAt=0;
 
     function turnLeft(){
         if (turnningL == 0) {
@@ -166,7 +201,8 @@
     function turnL(){
         stopL=requestAnimationFrame(turnL);
         camera.rotation.y+=0.01;
-        render1.render(scen,camera);
+//        console.log(camera.lookAt);
+        draw();
     }
 
     function turnRight(){
@@ -180,12 +216,12 @@
     function turnR(){
         stopR=requestAnimationFrame(turnR);
         camera.rotation.y-=0.01;
-        render1.render(scen,camera);
+        draw();
     }
 
     function turnUp(){
         if (turnningU == 0) {
-            turnningU=1;
+            turnningU=moveStep;
             turnU();
         }
         else{
@@ -193,13 +229,13 @@
     }
     function turnU(){
         stopU= requestAnimationFrame(turnU);
-        camera.rotation.x+=0.01;
-        render1.render(scen,camera);
+        camera.position.y+=2;
+        draw();
     }
 
     function turnDown(){
         if (turnningD == 0) {
-            turnningD=1;
+            turnningD=moveStep;
             turnD();
         }
         else{
@@ -207,8 +243,8 @@
     }
     function turnD(){
         stopD= requestAnimationFrame(turnD);
-        camera.rotation.x-=0.01;
-        render1.render(scen,camera);
+        camera.position.y-=2;
+        draw();
     }
 
     function turnMiddle(){
@@ -235,7 +271,7 @@
     function moveF(){
         stopF= requestAnimationFrame(moveF);
         camera.position.z-=moveStep;
-        render1.render(scen,camera);
+        draw();
     }
 
     function moveBac(){
@@ -248,7 +284,7 @@
     function moveB(){
         stopB= requestAnimationFrame(moveB);
         camera.position.z+=moveStep;
-        render1.render(scen,camera);
+        draw();
     }
 
     function moveLeft(){
@@ -261,7 +297,7 @@
     function moveL(){
         stopmL= requestAnimationFrame(moveL);
         camera.position.x-=moveStep;
-        render1.render(scen,camera);
+        draw();
     }
 
     function moveRight(){
@@ -274,7 +310,16 @@
     function moveR(){
         stopmR= requestAnimationFrame(moveR);
         camera.position.x+=moveStep;
-        render1.render(scen,camera);
+        draw();
+    }
+    function draw(){
+        if (lookAt == 1) {
+            camera.lookAt(scen.position);
+            render1.render(scen,camera);
+        }
+        else{
+            render1.render(scen,camera);
+        }
     }
 
 
@@ -309,8 +354,9 @@
             case 83:moveBac();break;
             case 65:moveLeft();break;
             case 68:moveRight();break;
+            case 81:looking();break;
         }
-    })
+    });
     $(window).on("keyup",function(e){
 //        console.log(e.keyCode);
         switch (e.keyCode){
@@ -319,7 +365,29 @@
             case 65:window.cancelAnimationFrame(stopmL);movingL=0;$(".keya").removeClass("bling");break;
             case 68:window.cancelAnimationFrame(stopmR);movingR=0;$(".keyd").removeClass("bling");break;
         }
-    })
+    });
+    //id为lookat的checkbox作为控制器
+//    $("#lookat").change(function(e){
+//        if (this.checked) {
+//            lookAt=1;
+//            draw();
+//        }
+//        else{
+//            lookAt=0;
+//            draw();
+//        }
+//    });
+    function looking(){
+        if (lookAt == 1) {
+            lookAt=0;
+            draw();
+        }
+        else{
+            lookAt=1;
+            draw();
+        }
+        $(".keyq").toggleClass("looking").toggleClass("bling");
+    }
 </script>
 </body>
 </html>
