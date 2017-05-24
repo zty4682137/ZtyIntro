@@ -9,12 +9,13 @@
   <title>嗨！九九重阳</title>
   <link type="text/css" href="index.css" rel="stylesheet"/>
  </head>
+ <div id="modal"><h2>正在读取...</h2></div>
  <body>
 	<!--<div id="header"> -->
 		<!--<a href="indexblack.html">关灯</a>-->
 	<!--</div>-->
 	<!--<a href="lightsoff.html">刚写的刚写的 欢迎沈总来看= =</a>-->
-
+	<table></table>
 	<div id="banner">
 		<a href="intro.html" id="intro"><br/>个人简介</a>
 		<a href="work.html" id="work"><br/>作品展示</a>
@@ -49,15 +50,23 @@
 			
 		</ul>		
 	</div>
-	<a href="#" id="backtotop">
-	</a>
+	<a href="#" id="backtotop"></a>
 	<footer>
 		<h4>版权所有 盗版必究</h4>
 		<p>&copy; 小羊科技有限公司版权所有 京ICP备233333号</p>
 	</footer>
+
+
+	<script src="js/jquery-3.1.1.min.js"></script>
 	<script>
-		var rancolor=Math.floor(Math.random()*255);
-		
+//		var rancolor=Math.floor(Math.random()*255);
+		$(window).ready(function(){
+			$("#modal").css("opacity","0");
+			var timeover=setTimeout(function(){
+				$("#modal").remove();
+				clearTimeout(timeover);
+			},500)
+		})
 	</script>
  </body>
 </html>
