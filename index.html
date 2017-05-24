@@ -58,16 +58,20 @@
 	</footer>
 
 
-	<script src="js/jquery-3.1.1.min.js"></script>
+	<!--<script src="js/jquery-3.1.1.min.js"></script>-->
+	<script src="js/jquery-1.11.3.js"></script>
 	<script>
 //		var rancolor=Math.floor(Math.random()*255);
 		$(window).load(function(){
 			$("#modal").css("opacity","0");
-			var timeover=setTimeout(function(){
+			var timeOver=setTimeout(function(){
 				$("#modal").remove();
-				clearTimeout(timeover);
+				clearTimeout(timeOver);
 			},500)
-		})
+		});
+
+
+//console.log($("#modal"));
 	</script>
  </body>
 </html>
