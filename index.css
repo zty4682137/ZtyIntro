@@ -16,6 +16,12 @@ body
 	width: 50%;
 	height: 100%;
 }
+ul{
+	list-style: none;
+}
+.textAleft{
+	text-align: left;
+}
 .banner{
 	background:url("images/10.jpg") no-repeat center;
 	background-size:100%;
@@ -225,8 +231,12 @@ footer
 	/*line-height: 35rem;*/
 }
 .panelCtn1 h3{
-	line-height: 28rem;
-	text-align: center;
+	 line-height: 28rem;
+	 text-align: center;
+ }
+.panelCtn2 h3{
+	line-height: 6rem;
+	/*text-align: center;*/
 }
 .bgPanel{
 	/*需要后期修改*/
@@ -241,17 +251,15 @@ footer
 	background-size: 100%;
 }
 .bgPanel1 h3{
-	line-height: 3rem;
+	line-height: 6rem;
 }
-.Cbg_zoomOut{
-	animation: bg_zoomOut .3s forwards;
-}
-@keyframes bg_zoomOut {
-	100%{background-size: 120%;}
-}
+
 .bgPanel2{
 	background: url("images/4.jpg") no-repeat center fixed;
 	background-size: cover;
+}
+.bgPanel2 h3{
+	line-height: 6rem;
 }
 .bgPanel3{
 	background: url("images/5.jpg") no-repeat center fixed;
@@ -261,6 +269,17 @@ footer
 	background: url("images/3.jpg") no-repeat center fixed;
 	background-size: cover;
 }
+/*.Cbg_zoomOut{*/
+	/*animation: bg_zoomOut .3s forwards;*/
+/*}*/
+/*@keyframes bg_zoomOut {*/
+	/*100%{background-size: 120%;}*/
+/*}*/
+
+
+
+
+
 .modal{
 	width: 100%;
 	height: 100%;
