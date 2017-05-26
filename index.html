@@ -52,11 +52,12 @@
 			
 		</ul>		
 	</div>
-	<!--<a href="#" id="backtotop"></a>-->
 	<footer>
 		<h4>版权所有 盗版必究</h4>
 		<p>&copy; 小羊科技有限公司版权所有 京ICP备233333号</p>
 	</footer>
+
+	<!--<a href="#" id="backtotop"></a>-->
 
 
 	<!--<script src="js/jquery-3.1.1.min.js"></script>-->
@@ -65,7 +66,6 @@
 		/**
 		 * 读取后的模态框消失事件
 		 */
-//		var rancolor=Math.floor(Math.random()*255);
 		$(window).load(function(){
 			$("#modal").css("opacity","0");
 			var timeOver=setTimeout(function(){
@@ -90,8 +90,6 @@
 						$(".bannerRoom").addClass("bannerRoomShow");
 						$(".intro").addClass("introDown").removeClass("introUp");
 						$(".work").addClass("workDown").removeClass("workUp");
-
-//						$("#ability").css("margin-top","150px");
 						scroll500=true;
 					})()
 				}
@@ -104,8 +102,6 @@
 						$(".bannerRoom").removeClass("bannerRoomShow");
 						$(".intro").addClass("introUp").removeClass("introDown");
 						$(".work").addClass("workUp").removeClass("workDown");
-
-//						$("#ability").css("margin-top","0");
 						scroll500=false;
 					})()
 				}
