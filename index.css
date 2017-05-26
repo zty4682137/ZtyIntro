@@ -55,6 +55,7 @@ body
 	font-weight: 800;
 	font-size:1.2rem;
 	line-height:50px;
+	background:rgba(22,22,22,0.4);
 }
 .banner>.intro
 {
@@ -66,20 +67,20 @@ body
 }
 .banner>.intro:hover,.banner>.work:hover
 {
-	background:rgba(22,22,22,0.5);
+	background:rgba(22,22,22,0.6);
 	color:#fff;
 	text-shadow: #fff 0 0 10px;
 }
 .bannerRoom{
 	width:90%;
-	height:80px;
+	height:170px;
 }
 .bannerRoomShow{
 	animation: bannerRoom 1s;
 }
 @keyframes bannerRoom {
 	0%{height: 650px}
-	100%{height: 80px}
+	100%{height: 170px}
 }
 
 #ability
@@ -291,4 +292,33 @@ footer
 	text-align: center;
 	color: #fff;
 	transition: opacity .5s;
+}
+
+
+
+.panel{
+	width: 100%;
+	height: 30rem;
+	background: #ccc;
+}
+.bgPanel1{
+	background: url("images/7.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+.bgPanel2{
+	background: url("images/4.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+.bgPanel3{
+	background: url("images/5.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+.bgPanel4{
+	background: url("images/3.jpg") no-repeat center fixed;
+	background-size: cover;
+}
+.modal{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.4);
 }
