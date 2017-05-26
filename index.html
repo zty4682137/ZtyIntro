@@ -26,25 +26,49 @@
 
 
 
-	<div class="panel panelCtn">姓名头像</div>
+	<div class="panel panelCtn panelCtn1">
+		<div class="half fl"></div>
+		<div class="half fl"><h3>张天阳</h3></div>
+	</div>
 	<div class="panel bgPanel bgPanel1">
 		<div class="modal">
-			联系方式13888888888
+			<h3>联系方式</h3>
+			<p><span>Phone:</span>13146556360</p>
+			<p><span>E-mail:</span>chong_yang_99@163.com</p>
 		</div>
 	</div>
-	<div class="panel panelCtn">基本信息</div>
+	<div class="panel panelCtn panelCtn2">
+		<h3>基本信息</h3>
+		<p>?</p>
+		<p>?</p>
+		<p>?</p>
+		<p>?</p>
+	</div>
 	<div class="panel bgPanel bgPanel2">
 		<div class="modal">
-			github微博链接地址啥的
+			<h3>其他账号</h3>
+			<ul>
+				<li>github</li>
+				<li>微博</li>
+				<li>豆瓣</li>
+			</ul>
 		</div>
 	</div>
-	<div class="panel panelCtn">工作经历、项目经验</div>
-	<div class="panel bgPanel bgPanel3">
-		<div class="modal">性格、自评</div>
+	<div class="panel panelCtn panelCtn3">
+		工作经历、项目经验
 	</div>
-	<div class="panel panelCtn">技能技巧</div>
+	<div class="panel bgPanel bgPanel3">
+		<div class="modal">
+			<h3>自我评价</h3>
+		</div>
+	</div>
+	<div class="panel panelCtn panelCtn4">
+		<h3>技能技巧</h3>
+	</div>
 	<div class="panel bgPanel bgPanel4">
-		<div class="modal">其他</div>
+		<div class="modal">
+			<h3>其他</h3>
+		</div>
 	</div>
 
 
@@ -84,10 +108,11 @@
 		 * 滚动事件控制banner
 		 */
 		var scroll500=false;
-		//滚动事件
-		$(window).scroll(function(){
+
+
+		//滚动方法
+		function bannerEvent(){
 			var scrollTop=$(window).scrollTop();
-//			console.log(scrollTop);
 			if(scrollTop > 0){
 				if (scroll500) {
 					return
@@ -116,12 +141,18 @@
 					return
 				}
 			}
+		}
+
+
+		//滚动事件
+		$(window).scroll(function(){
+			bannerEvent();
 		});
 		//鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
 		$(".bgPanel").mouseenter(function(){
 //			$(this).children(".modal").css("background","rgba(0,0,0,.2)");
-		})
-
+		});
+		bannerEvent();
 	</script>
 
  </body>
