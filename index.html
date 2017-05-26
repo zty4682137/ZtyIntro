@@ -94,7 +94,6 @@
 				}
 				else{
 					(function(){
-						console.log(1);
 						$(".banner").addClass("bannerDown").removeClass("bannerUp");
 						$(".bannerRoom").addClass("bannerRoomShow");
 						$(".intro").addClass("introDown").removeClass("introUp");
@@ -106,7 +105,6 @@
 			else if(scrollTop <= 0){
 				if (scroll500) {
 					(function(){
-						console.log(2);
 						$(".banner").addClass("bannerUp").removeClass("bannerDown");
 						$(".bannerRoom").removeClass("bannerRoomShow");
 						$(".intro").addClass("introUp").removeClass("introDown");
@@ -118,8 +116,11 @@
 					return
 				}
 			}
+		});
+		//鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
+		$(".bgPanel").mouseenter(function(){
+//			$(this).children(".modal").css("background","rgba(0,0,0,.2)");
 		})
-
 
 	</script>
 
