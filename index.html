@@ -59,16 +59,20 @@
 			<h3>其他账号</h3>
 			<ul>
 				<li class="fl">
-					<p>github</p>
+					<p>微信</p>
 					<div class="socialImg socialImg1"></div>
 				</li>
 				<li class="fl">
-					<p>微博</p>
+					<p>github</p>
 					<div class="socialImg socialImg2"></div>
 				</li>
 				<li class="fl">
-					<p>豆瓣</p>
+					<p>微博</p>
 					<div class="socialImg socialImg3"></div>
+				</li>
+				<li class="fl">
+					<p>豆瓣</p>
+					<div class="socialImg socialImg4"></div>
 				</li>
 			</ul>
 		</div>
@@ -126,14 +130,16 @@
 		/**
 		 * 滚动事件控制banner
 		 */
-		var scroll500=false;
+		var scroll0=false;
+		var roundImgShow=false;
 
 
 		//滚动方法
+		//banner方法
 		function bannerEvent(){
 			var scrollTop=$(window).scrollTop();
 			if(scrollTop > 0){
-				if (scroll500) {
+				if (scroll0) {
 					return
 				}
 				else{
@@ -142,22 +148,37 @@
 						$(".bannerRoom").addClass("bannerRoomShow");
 						$(".intro").addClass("introDown").removeClass("introUp");
 						$(".work").addClass("workDown").removeClass("workUp");
-						scroll500=true;
+						scroll0=true;
 					})()
 				}
 			}
 			else if(scrollTop <= 0){
-				if (scroll500) {
+				if (scroll0) {
 					(function(){
 						$(".banner").addClass("bannerUp").removeClass("bannerDown");
 						$(".bannerRoom").removeClass("bannerRoomShow");
 						$(".intro").addClass("introUp").removeClass("introDown");
 						$(".work").addClass("workUp").removeClass("workDown");
-						scroll500=false;
+						scroll0=false;
 					})()
 				}
 				else{
 					return
+				}
+			}
+		}
+		//panel1方法
+		function panelEvent(){
+			var mTop = $('.panelCtn2')[0].offsetTop;
+			var sTop = $(window).scrollTop();
+			var result = mTop - sTop;
+			if (result < 85) {
+				if(roundImgShow){
+					return
+				}
+				else{
+					$(".roundImg").addClass("cardZoom");
+					roundImgShow=true;
 				}
 			}
 		}
@@ -166,12 +187,18 @@
 		//滚动事件
 		$(window).scroll(function(){
 			bannerEvent();
+			panelEvent();
+		});
+		//要提前判断一下
+		$(window).ready(function(){
+			bannerEvent();
+			panelEvent();
 		});
 		//鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
 		$(".bgPanel").mouseenter(function(){
 //			$(this).children(".modal").css("background","rgba(0,0,0,.2)");
 		});
-		bannerEvent();
+
 	</script>
 
  </body>
