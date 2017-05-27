@@ -223,43 +223,54 @@ footer
 	background: -webkit-linear-gradient(top,#5F7C8A,#363F45);
 	padding:3rem 8rem;
 	box-sizing: border-box;
-
-/*需要后期修改*/
+	overflow: hidden;
 	color: #fff;
+}
+.panelCtn h3{
 	/*text-align: center;*/
 	font-size: 3rem;
-	/*line-height: 35rem;*/
-}
-.panelCtn1 h3{
-	 line-height: 28rem;
-	 text-align: center;
- }
-.panelCtn2 h3{
 	line-height: 6rem;
-	/*text-align: center;*/
 }
+.panelCtn p{
+	font-size: 1.3rem;
+	line-height: 2.5rem;
+}
+.panelCtn1 h3.name{
+	line-height: 28rem;
+	text-align: center;
+ }
+
 .bgPanel{
 	/*需要后期修改*/
 	height: 20rem;
 	color: #fff;
 	text-align: center;
 	font-size: 1.5rem;
+	box-sizing: border-box;
+	overflow: hidden;
 	/*line-height: 20rem;*/
+}
+.bgPanel h3{
+	line-height: 6rem;
 }
 .bgPanel1{
 	background: url("images/7.jpg") no-repeat center fixed;
 	background-size: 100%;
 }
-.bgPanel1 h3{
-	line-height: 6rem;
-}
-
 .bgPanel2{
 	background: url("images/4.jpg") no-repeat center fixed;
 	background-size: cover;
 }
-.bgPanel2 h3{
-	line-height: 6rem;
+.bgPanel2 ul{
+	margin: auto;
+	width: 42rem;
+}
+.bgPanel2 ul li{
+	width: 10rem;
+	margin: 0 2rem;
+}
+.bgPanel2 ul li p {
+	border-bottom: 2px solid #fff;
 }
 .bgPanel3{
 	background: url("images/5.jpg") no-repeat center fixed;
@@ -269,6 +280,31 @@ footer
 	background: url("images/3.jpg") no-repeat center fixed;
 	background-size: cover;
 }
+.roundImg{
+	height: 20rem;
+	width: 20rem;
+	border-radius: 50%;
+	background: #fff url("images/IDcard.png") no-repeat center;
+	background-size: 13rem;
+	box-shadow: #000000 8px 12px 53px -11px inset;
+	margin: auto;
+}
+.socialImg{
+	height: 5rem;
+	width: 5rem;
+	border-radius: 50%;
+	background: #fff;
+	margin: 1rem auto;
+}
+/*.socialImg1{*/
+	/*background: #000 url("images/");*/
+/*}*/
+/*.socialImg2{*/
+	/*background: #000 url("images/");*/
+/*}*/
+/*.socialImg3{*/
+	/*background: #000 url("images/");*/
+/*}*/
 /*.Cbg_zoomOut{*/
 	/*animation: bg_zoomOut .3s forwards;*/
 /*}*/
@@ -289,5 +325,5 @@ footer
 	transition: background .3s;
 }
 .modal:hover{
-	background: rgba(0,0,0,.4);
+	background: rgba(0,0,0,.5);
 }
