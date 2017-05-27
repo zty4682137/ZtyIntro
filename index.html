@@ -78,19 +78,48 @@
 		</div>
 	</div>
 	<div class="panel panelCtn panelCtn3">
-		<h3>工作经历、项目经验</h3>
+		<div class="half fl expText">
+			<h3>工作经历</h3>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<p>中国社会科学院 访问学生(实习)</p>
+			<p>工商银行软件部 手机银行app测评(实习)</p>
+			<p>金星软件 前端开发</p>
+			<p>赞同科技 前端开发</p>
+		</div>
+		<div class="half fl expText">
+			<h3>项目经验</h3>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<p>基于jsp实现的工资管理系统(实习项目)</p>
+			<p>基于H5的公司OA系统(个人合作项目)</p>
+			<p>区块链清算平台(使用赞同公司AWEB)</p>
+			<p>中信银行服务器监测系统</p>
+		</div>
 	</div>
 	<div class="panel bgPanel bgPanel3">
 		<div class="modal">
 			<h3>自我评价</h3>
+			<p>小童出门夜未归，阳明月白天作美</p>
+			<p>醉卧疆场梦白日，帅军万里刀枪黑</p>
 		</div>
 	</div>
 	<div class="panel panelCtn panelCtn4">
 		<h3>技能技巧</h3>
+		<div class="charts fl" id="echart1"></div>
+		<div class="charts fl" id="echart2"></div>
 	</div>
 	<div class="panel bgPanel bgPanel4">
 		<div class="modal">
 			<h3>其他</h3>
+			<p>射箭、乒乓球、羽毛球、篮球、滑雪都会一点</p>
+			<p>游泳、吉他、星际争霸玩的还不错</p>
+			<p>没事爱做饭爱看电影爱看动漫还爱出去旅游</p>
+			<p>欢迎勾搭</p>
 		</div>
 	</div>
 
@@ -114,6 +143,8 @@
 
 	<!--<script src="js/jquery-3.1.1.min.js"></script>-->
 	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/echarts.js"></script>
+	<!--动效事件等等-->
 	<script>
 		/**
 		 * 读取后的模态框消失事件
@@ -199,6 +230,110 @@
 //			$(this).children(".modal").css("background","rgba(0,0,0,.2)");
 		});
 
+	</script>
+	<!--echaert方法-->
+	<script>
+		var myChart1 = echarts.init($("#echart1")[0]);
+		var myChart2 = echarts.init($("#echart2")[0]);
+		var option1 = {
+			title : {
+//				text: '罗纳尔多 vs 舍普琴科',
+//				subtext: '完全实况球员数据'
+			},
+			tooltip : {
+				trigger: 'axis'
+			},
+			legend: {
+//				x : 'center',
+//				data:['专业技能']
+			},
+			toolbox: {
+//				show : true,
+//				feature : {
+//					mark : {show: true},
+//					dataView : {show: true, readOnly: false},
+//					restore : {show: true},
+//					saveAsImage : {show: true}
+//				}
+			},
+			calculable : true,
+			polar : [
+				{
+					indicator : [
+						{text : 'H5Css3', max  : 100},
+						{text : 'JS+JQ', max  : 100},
+						{text : 'PHP+SQL', max  : 100},
+						{text : 'AJAX', max  : 100},
+						{text : 'BootStrape+Angular+vue', max  : 100},
+						{text : 'canvas+echarts+two', max  : 100},
+						{text : 'nodeJS', max  : 100}
+					],
+					radius : 130
+				}
+			],
+			series : [
+				{
+					name: '专业技能值',
+					type: 'radar',
+					itemStyle: {
+						normal: {
+							areaStyle: {
+								type: 'default'
+							}
+						}
+					},
+					data : [
+						{
+							value : [95, 82, 55, 75, 83, 77,40],
+							name : '专业技能'
+						}
+					]
+				}
+			]
+//			textStyle:[{
+//				color:"#fff",
+//				fontSize:40
+//			}]
+		};
+		var option2 = {
+			tooltip : {
+				trigger: 'axis'
+			},
+			calculable : true,
+			polar : [
+				{
+					indicator : [
+						{text : '性格人品', max  : 100},
+						{text : '学习能力', max  : 100},
+						{text : '责任心', max  : 100},
+						{text : '领导力', max  : 100},
+						{text : '幽默感', max  : 100}
+					],
+					radius : 130
+				}
+			],
+			series : [
+				{
+					name: '个人能力自评值',
+					type: 'radar',
+					itemStyle: {
+						normal: {
+							areaStyle: {
+								type: 'default'
+							}
+						}
+					},
+					data : [
+						{
+							value : [90, 83, 73, 40, 140],
+							name : '其他自评分'
+						}
+					]
+				}
+			]
+		};
+		myChart1.setOption(option1);
+		myChart2.setOption(option2);
 	</script>
 
  </body>

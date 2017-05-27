@@ -239,7 +239,9 @@ footer
 	line-height: 28rem;
 	text-align: center;
  }
-
+.panelCtn3 .expText{
+	text-align: center;
+}
 .bgPanel{
 	/*需要后期修改*/
 	height: 20rem;
@@ -312,6 +314,13 @@ footer
 	background:#fff url("images/douPaint.png") no-repeat center ;
 	background-size: cover;
 }
+.charts{
+	height: 23rem;
+	width: 50%;
+	/*margin: 0;*/
+}
+
+
 .cardZoom{
 	animation: cardZoom .8s forwards;
 }
