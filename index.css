@@ -99,7 +99,7 @@ ul{
 #other
 {
 	width:100%;
-	height:250px;
+	height:26.5rem;
 	background:url("images/intro_bg.jpg");
 	overflow:hidden;
 	margin:0 auto;
@@ -107,9 +107,9 @@ ul{
 #other ul
 {
 	list-style:none;
-	width:1200px;
-	height:210px;
-	margin:30px auto;
+	width:100%;
+	height:17rem;
+	margin:30px auto 0;
 	/*border:1px red solid;*/
 }
 #other li
@@ -119,7 +119,7 @@ ul{
 	float:left;
 	position:relative;
 	/*border:1px green solid;*/
-	margin:0 20px;
+	margin:0 4rem;
 	
 }
 
@@ -192,13 +192,9 @@ ul{
 {
 	background-position:-510px -589px;
 }
-footer
+.footer
 {
-	width:100%;
-	height:60px;
-	background:#ccc;
 	text-align:center;
-	line-height:30px;
 }
 #ztyModal{
 	position: fixed;
@@ -256,11 +252,11 @@ footer
 	line-height: 6rem;
 }
 .bgPanel1{
-	background: url("images/7.jpg") no-repeat center fixed;
+	background: url("images/13.jpg") no-repeat center fixed;
 	background-size: 100%;
 }
 .bgPanel2{
-	background: url("images/4.jpg") no-repeat center fixed;
+	background: url("images/12.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .bgPanel2 ul{
@@ -276,11 +272,11 @@ footer
 	border-bottom: 2px solid #fff;
 }
 .bgPanel3{
-	background: url("images/5.jpg") no-repeat center fixed;
+	background: url("images/4.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .bgPanel4{
-	background: url("images/3.jpg") no-repeat center fixed;
+	background: url("images/11.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .roundImg{
