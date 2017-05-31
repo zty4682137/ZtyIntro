@@ -4,10 +4,40 @@ body
 	/*这个不能解决外边距溢出*/
 	/*box-sizing: border-box;*/
 }
-*
-{
-	margin:0;
-	padding:0;
+#elevator{
+	width: 3rem;
+	height: 20rem;
+	position: fixed;
+	left: 1rem;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	background: rgba(0,0,0,.3);
+	border-radius: 5px;
+	transition: all .8s;
+	opacity: 0;
+	z-index: 3000;
+	padding: 4rem 1rem;
+}
+#elevator ul{
+	padding: 0;
+}
+#elevator li{
+	width: 1rem;
+	height: 1rem;
+	background: rgba(255,255,255,.6);
+	border-radius: 50%;
+	margin: 1.3rem 0;
+	transition: all .3s;
+}
+#elevator li a{
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+#elevator .elevatorActive{
+	background: rgba(255,255,255,1);
+	box-shadow: #fff 0 0 15px 4px;
 }
 .fl{
 	float: left;

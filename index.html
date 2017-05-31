@@ -19,16 +19,24 @@
 	<div id="ztyModal">
 		<h2>正在加载...</h2>
 		<h3>图片较多,加载可能会比较慢</h3>
+		<object controls="" autoplay="" type="application/x-shockwave-flash" style="outline:none;margin: 0 auto;border-radius: 15px" data="http://cdn.abowman.com/widgets/hamster/hamster.swf?" width="400" height="225"><param name="movie" value="http://cdn.abowman.com/widgets/hamster/hamster.swf?"><param name="AllowScriptAccess" value="always"><param name="wmode" value="opaque"></object>
 	</div>
+	<div id="elevator">
+		<ul>
+			<li class="eleva0 elevatorActive" id="ele0"><a href=""></a></li>
+			<li class="eleva1" id="ele1"><a href=""></a></li>
+			<li class="eleva2 " id="ele2"><a href=""></a></li>
+			<li class="eleva3 " id="ele3"><a href=""></a></li>
+			<li class="eleva4 " id="ele4"><a href=""></a></li>
+		</ul>
+	</div>
+
 	<table></table>
 	<div class="banner bannerUp">
 		<a href="intro.html" class="intro introUp">个人简介</a>
 		<a href="work.html" class="work workUp">作品展示</a>
 	</div>
 	<div class="bannerRoom"></div>
-
-
-
 
 	<div class="ztypanel panelCtn panelCtn1">
 		<div class="half fl"></div>
@@ -81,8 +89,7 @@
 			</ul>
 		</div>
 	</div>
-
-		<div id="carousel-example-generic" class="carousel slide ztypanel panelCtn panelCtn3" data-ride="carousel">
+	<div id="carousel-example-generic" class="carousel slide ztypanel panelCtn panelCtn3" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -198,7 +205,7 @@
 		 */
 		var scroll0=false;
 		var roundImgShow=false;
-
+		var nowFloor;
 
 		//滚动方法
 		//banner方法
@@ -214,6 +221,7 @@
 						$(".bannerRoom").addClass("bannerRoomShow");
 						$(".intro").addClass("introDown").removeClass("introUp");
 						$(".work").addClass("workDown").removeClass("workUp");
+						$("#elevator").css("opacity","1");
 						scroll0=true;
 					})()
 				}
@@ -225,6 +233,7 @@
 						$(".bannerRoom").removeClass("bannerRoomShow");
 						$(".intro").addClass("introUp").removeClass("introDown");
 						$(".work").addClass("workUp").removeClass("workDown");
+						$("#elevator").css("opacity","0");
 						scroll0=false;
 					})()
 				}
@@ -254,11 +263,13 @@
 		$(window).scroll(function(){
 			bannerEvent();
 			panelEvent();
+			eleva();
 		});
 		//要提前判断一下
 		$(window).ready(function(){
 			bannerEvent();
 			panelEvent();
+			eleva();
 		});
 		//鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
 		$(".bgPanel").mouseenter(function(){
@@ -370,9 +381,73 @@
 		myChart1.setOption(option1);
 		myChart2.setOption(option2);
 	</script>
- 	<!--轮播js-->
+ 	<!--电梯导航-->
 	<script>
+		var floorArr=[];
+		floorArr.push(0);
+		$(".panelCtn").each(function(){
+			floorArr.push($(this).offset().top-710);
+		});
+//		console.log(floorArr);
+		//dom方法
+		function elevatorActive(index){
+			$(".eleva"+index).addClass("elevatorActive").siblings().removeClass("elevatorActive");
+			nowFloor=index;
+		}
+		//入口方法
+		function eleva(){
+			var scrollTop=$(window).scrollTop();
+			if(scrollTop >= floorArr[4]){
+				if (nowFloor==4) {
+					return
+				}
+				else{
+					elevatorActive(4)
+				}
+			}
+			else if(scrollTop >= floorArr[3]){
+				if (nowFloor==3) {
+					return
+				}
+				else{
+					elevatorActive(3)
+				}
+			}
+			else if(scrollTop >= floorArr[2]){
+				if (nowFloor==2) {
+					return
+				}
+				else{
+					elevatorActive(2)
+				}
+			}
+			else if(scrollTop >= floorArr[1]){
+				if (nowFloor==1) {
+					return
+				}
+				else{
+					elevatorActive(1)
+				}
+			}
+			else if(scrollTop == floorArr[0]){
+				if (nowFloor==0) {
+					return
+				}
+				else{
+					elevatorActive(0)
+				}
+			}
+		}
+		//绑定电梯事件
+		$("#elevator li a").click(function(e){
+			e.preventDefault();
+			var index=Number($(this).parent()[0].id.substr(3,1));
+			console.log(index);
+//			elevatorActive(index);
+//			为什么这个可以实现慢速滚动
+			$('html, body').animate({scrollTop:floorArr[index]}, 'slow');
 
+		})
 	</script>
  </body>
 </html>
