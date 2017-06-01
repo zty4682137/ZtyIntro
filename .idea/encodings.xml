@@ -17,5 +17,7 @@
     <file url="file://$PROJECT_DIR$/js/echarts.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js/jquery-1.11.3.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js/jquery-3.1.1.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mypro/canvasSunEarth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mypro/h5Paint" charset="UTF-8" />
   </component>
 </project>

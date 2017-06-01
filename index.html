@@ -445,7 +445,7 @@
 			console.log(index);
 //			elevatorActive(index);
 //			为什么这个可以实现慢速滚动
-			$('html, body').animate({scrollTop:floorArr[index]}, 'slow');
+			$('html, body').animate({scrollTop:floorArr[index]==0?0:(floorArr[index]+10)}, 'slow');
 
 		})
 	</script>
