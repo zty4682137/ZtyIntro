@@ -442,9 +442,10 @@
 		$("#elevator li a").click(function(e){
 			e.preventDefault();
 			var index=Number($(this).parent()[0].id.substr(3,1));
-			console.log(index);
+//			console.log(index);
 //			elevatorActive(index);
-//			为什么这个可以实现慢速滚动
+			//为什么这个可以实现慢速滚动
+			//不知道为什么电梯总差一点所以用这个方法补了10的距离
 			$('html, body').animate({scrollTop:floorArr[index]==0?0:(floorArr[index]+10)}, 'slow');
 
 		})
