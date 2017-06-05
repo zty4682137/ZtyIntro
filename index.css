@@ -153,6 +153,7 @@ ul{
 	
 }
 
+
 #other #hobby:hover #hobbyimg,#other #exp:hover #expimg,#other #ex1:hover #ex1img
 {
 	transform:scale(1.3);
@@ -207,21 +208,7 @@ ul{
 	left:200px;
 	top:40px;
 }
-#backtotop
-{
-	display:block;
-	width:82px;
-	height:82px;
-	position:fixed;
-	right:10px;
-	bottom:10px;
-	background:url("images/iconlist_2.png")no-repeat -429px -589px;
 
-}
-#backtotop:hover
-{
-	background-position:-510px -589px;
-}
 .footer
 {
 	text-align:center;
@@ -380,3 +367,7 @@ ul{
 .carousel-inner>.item>img{
 	height: 45rem;
 }
+/*.carousel-inner>.carousel-caption{*/
+	/*right: 0;*/
+	/*left: 50%;*/
+/*}*/

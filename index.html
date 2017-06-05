@@ -105,7 +105,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="images/1.jpg" alt="">
+					<img class="" src="images/deer1.jpg" alt="">
 					<div class="carousel-caption">
 						<h3>工作经历</h3>
 						<p>中国社会科学院  访问学生(实习)</p>
@@ -115,7 +115,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="images/1.jpg" alt="">
+					<img class="" src="images/deer2.jpg" alt="">
 					<div class="carousel-caption">
 						<h3>项目经验</h3>
 						<p>基于jsp实现的工资管理系统(实习项目)</p>
@@ -125,7 +125,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="images/1.jpg" alt="">
+					<img class="" src="images/deer3.jpg" alt="">
 					<div class="carousel-caption">
 						<h3>其他经历</h3>
 						<p>北信科吉他社社长  社团活动及文艺汇演</p>
@@ -277,9 +277,9 @@
 			eleva();
 		});
 		//鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
-		$(".bgPanel").mouseenter(function(){
+//		$(".bgPanel").mouseenter(function(){
 //			$(this).children(".ztyModal").css("background","rgba(0,0,0,.2)");
-		});
+//		});
 
 	</script>
 	<!--echaert方法-->
@@ -452,7 +452,7 @@
 			//为什么这个可以实现慢速滚动
 			//不知道为什么电梯总差一点所以用这个方法补了10的距离
 			$('html, body').animate({scrollTop:floorArr[index]==0?0:(floorArr[index]+10)}, 'slow');
-		})
+		});
 	</script>
  </body>
 </html>
