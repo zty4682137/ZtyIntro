@@ -72,7 +72,7 @@ function start() {
     }
     //判断雷数
     if (boomNum == "") {
-        boomNum = Math.floor(boxX * boxY * .2);
+        boomNum = Math.floor(boxX * boxY * .15);
     }
     else if (boomNum < 0) {
         alert("你在逗我");
@@ -146,13 +146,13 @@ function draw() {
     for (var i = 0; i < boxY; i++) {
         for (var j = 0; j < boxX; j++) {
             if (arr[i][j] == 1) {
-                $(".r" + i + " .c" + j).html("雷");
+                $(".r" + i + " .c" + j).html('<img class="bomb" src="img/boob.png" alt=""/>');
             }
             else if (arr[i][j] == 4) {
-                $(".r" + i + " .c" + j).html("succ");
+                $(".r" + i + " .c" + j).html('<img class="succflag" src="img/success.png" alt=""/>');
             }
             else if (arr[i][j] == 3) {
-                $(".r" + i + " .c" + j).html("X");
+                $(".r" + i + " .c" + j).html('<img class="wrong" src="img/wrong.png" alt=""/>');
             }
         }
     }
@@ -246,7 +246,7 @@ function flag(x, y) {
     }
     //""是空 3是旗子空
     else if (arr[y][x] == "") {
-        $(".r" + y + " .c" + x).html("旗");
+        $(".r" + y + " .c" + x).html('<img class="flag" src="img/flag.png" alt=""/>');
         arr[y][x] = 3;
     }
     else if (arr[y][x] == 3) {
@@ -255,7 +255,7 @@ function flag(x, y) {
     }
     //1是雷 4是旗子雷
     else if (arr[y][x] == 1) {
-        $(".r" + y + " .c" + x).html("旗");
+        $(".r" + y + " .c" + x).html('<img class="flag" src="img/flag.png" alt=""/>');
         arr[y][x] = 4;
     }
     else if (arr[y][x] == 4) {

@@ -20,7 +20,10 @@
             margin:2rem auto 2rem;
             /*border: 1px solid red;*/
         }
-
+        .flag,.bomb,.wrong,.succflag{
+            height: 100%;
+            /*width: 100%;*/
+        }
         .modal {
             height: 100%;
             width: 100%;
@@ -37,9 +40,10 @@
         }
 
         .col {
-            height: 40px;
-            width: 40px;
-            line-height: 40px;
+            height: 42px;
+            width: 42px;
+            padding: 5px;
+            line-height: 30px;
             font-weight: 700;
             font-size: 1.2rem;
             color: #fff;
@@ -48,6 +52,7 @@
             float: left;
             background: -webkit-linear-gradient(top, #1ec7eb, #229eb3);
             transition: all .5s;
+            box-sizing: border-box;
         }
         .tools{
             background: #eee;
@@ -127,7 +132,6 @@
     <h1>你赢了！！</h1>
     <canvas id=c></canvas>
 </div>
-
 <h1 class="text-center">扫雷(右键插旗或震开方块)</h1>
 <h4 class="text-center">为了良好的游戏体验 宽高设置建议不超过30*15(最好使用chrome浏览器 F11应该可以全屏)</h4>
 <div class="container">
@@ -321,7 +325,6 @@
         <div class="col c17"></div>
         <div class="col c18"></div>
         <div class="col c19"></div>
-
 
     </div>
     <div class="row r8">
