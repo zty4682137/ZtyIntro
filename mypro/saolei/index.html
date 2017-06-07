@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            cursor: default;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+        .container {
+            /*height: 420px;*/
+            width: 840px;
+            position: relative;
+            margin:2rem auto 2rem;
+            /*border: 1px solid red;*/
+        }
+
+        .modal {
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, .4);
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        .row {
+            height: 42px;
+            /*width: 100%;*/
+        }
+
+        .col {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
+            border: 1px solid #666;
+            float: left;
+            background: -webkit-linear-gradient(top, #1ec7eb, #229eb3);
+            transition: all .5s;
+        }
+        .tools{
+            background: #eee;
+            text-align: center;
+            line-height: 45px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45px;
+            border-top: 1px solid #666;
+        }
+        .modalBg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .3);
+            display: none;
+        }
+
+        .modalCtn {
+            border: 1px solid #666666;
+            border-radius: 2rem;
+            position: absolute;
+            left: 20%;
+            right: 20%;
+            top: 10%;
+            bottom: 10%;
+            background: #eee;
+            text-align: center;
+
+        }
+
+        .modalCtn img {
+            width: 30%;
+        }
+        .succCtn{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            display: none;
+        }
+        .succCtn h1{
+            text-align: center;
+            position: absolute;
+            /*display: block;*/
+            width: 100%;
+            font-size: 10rem;
+            top: 3rem;
+            color: #fff;
+            z-index: 3000;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .down {
+            background: #0F1D42;
+            box-shadow: #000 0 0 10px 0 inset;
+        }
+
+        .Mdown {
+            background: #229eb3;
+            box-shadow: #000 0 0 10px 0 inset;
+        }
+    </style>
+</head>
+<!--阻止拖拽阻止右键阻止选中-->
+<body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"onselectstart="event.returnValue=false">
+<div class="succCtn">
+    <h1>你赢了！！</h1>
+    <canvas id=c></canvas>
+</div>
+
+<h1 class="text-center">扫雷(右键插旗或震开方块)</h1>
+<h4 class="text-center">为了良好的游戏体验 宽高设置建议不超过30*15(最好使用chrome浏览器 F11应该可以全屏)</h4>
+<div class="container">
+    <div class="modal"></div>
+    <div class="row r0">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r1">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r2">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r3">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r4">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r5">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r6">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r7">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r8">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+    <div class="row r9">
+        <div class="col c0"></div>
+        <div class="col c1"></div>
+        <div class="col c2"></div>
+        <div class="col c3"></div>
+        <div class="col c4"></div>
+        <div class="col c5"></div>
+        <div class="col c6"></div>
+        <div class="col c7"></div>
+        <div class="col c8"></div>
+        <div class="col c9"></div>
+        <div class="col c10"></div>
+        <div class="col c11"></div>
+        <div class="col c12"></div>
+        <div class="col c13"></div>
+        <div class="col c14"></div>
+        <div class="col c15"></div>
+        <div class="col c16"></div>
+        <div class="col c17"></div>
+        <div class="col c18"></div>
+        <div class="col c19"></div>
+
+
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+
+<div class="tools">
+    <label for="Xarc">宽：</label><input type="text" name="" id="Xarc"/>
+    <label for="Yarc">高：</label><input type="text" name="" id="Yarc"/>
+    <label for="bombNum">设置地雷数量：</label><input type="text" name="" id="bombNum"/>
+    <button class="startBtn" onclick="start()">开始</button>
+    <button class="payBtn" onclick="pay()">花钱作弊(我就是支付接口)</button>
+</div>
+<div class="modalBg">
+    <div class="modalCtn">
+        <h3>支付接口</h3>
+        <img src="img/pay.png" alt=""/>
+        <br/>
+        <button onclick="payFinish()">支付成功</button>
+        <button onclick="closeModal()">关闭</button>
+    </div>
+</div>
+</body>
+
+<script src="js/jquery-1.11.3.js"></script>
+<!--主体算法-->
+<script src="js/main.js"></script>
+<!--烟花效果-->
+<script src="js/fireWork.js"></script>
+</html>

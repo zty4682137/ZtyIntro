@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/img/boob.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img/pay.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/fireWork.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/jquery-1.11.3.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/production/fireWork-min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/production/jquery-3.1.1.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/production/main-min.js" charset="UTF-8" />
+  </component>
+</project>
