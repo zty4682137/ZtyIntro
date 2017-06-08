@@ -206,17 +206,7 @@ a
 	line-height:25px;
 	/*border:1px red solid;*/
 }
-#backtotop
-{
-	display:block;
-	width:82px;
-	height:82px;
-	position:fixed;
-	right:10px;
-	bottom:10px;
-	background:url("../images/iconlist_2.png");
-	background-position:-429px -589px;
-}
+
 #backtotop:hover
 {
 	background-position:-510px -589px;
