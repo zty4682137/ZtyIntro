@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body
+        {
+            text-align: center;
+        }
+        canvas
+        {
+            background:#CCCCCC;
+        }
+        #nowcolor
+        {
+            height:50px;
+            width:50px;
+            margin:0 auto;
+            border:1px solid #000;
+            position: relative;
+        }
+        #nc
+        {
+            background:#000;
+            height:10px;
+            width: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right:0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+<body>
+<canvas id="c1" width="600" height="500"></canvas>
+<div id="nowcolor"><div id="nc"></div></div>
+<div id="changecolor">选择颜色：
+    <button>red</button>
+    <button>green</button>
+    <button>blue</button>
+    <button>black</button>
+</div>
+<div id="changewidth">选择笔触粗细：
+    <button>small</button>
+    <button>mid</button>
+    <button>big</button>
+</div>
+<div id="tools">选择工具：
+    <button>ruber</button>
+    <button>clear</button>
+</div>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    function makeImg(canvas){
+        var image=new Image();
+        image.src=canvas.toDataURL("img/png");
+        return image;
+    }
+</script>
+<script>
+    var ctx=c1.getContext("2d");
+    var timer,img;
+
+    ctx.strokeStyle="#000";
+    ctx.lineWidth="10";
+    ctx.lineCap="round";
+
+    function draw(x,y)
+    {
+//            var prex,prey;
+//            ctx.moveTo(prex,prey);
+            ctx.lineTo(x,y);
+            ctx.stroke();
+//            prex=x;prey=y;
+    }
+
+    $("#c1").mousedown(function(){
+        $("#c1").on("mousemove",function(e){
+            draw(e.offsetX, e.offsetY);
+//            $("#c1").css("cursor","hand");//如何消除滑动时的鼠标样式
+
+        })
+        img=makeImg(this);
+    })
+    $("#c1").mouseup(function() {
+        $("#c1").off("mousemove");
+        ctx.beginPath();
+
+    })
+    $("#c1").mouseleave(function(){
+        $("#c1").off("mousemove");
+        ctx.beginPath();
+    })
+    window.onkeydown=function(e){
+        ctx.clearRect(0,0,600,500);
+        ctx.drawImage(img,0,0);
+    }
+
+
+    $("#changecolor").on("click","button",function(){
+        var col=$(this).html();
+        $("#nc").css("background",col);
+        ctx.strokeStyle=col;
+    })
+    $("#changewidth").on("click","button",function(){
+        var width=$(this).html();
+        if(width=="small")
+        {
+            ctx.lineWidth="3";
+            $("#nc").css("width",3).css("height",3);
+        }
+        else if(width=="mid")
+        {
+            ctx.lineWidth="10";
+            $("#nc").css("width",10).css("height",10);
+        }
+        else if(width=="big")
+        {
+            ctx.lineWidth="20";
+            $("#nc").css("width",20).css("height",20);
+        }
+    })
+    $("#tools").on("click","button",function(){
+        var btn=$(this).html();
+        if(btn=="ruber")
+        {
+            ctx.lineWidth="20";
+            ctx.strokeStyle="#ccc";
+            ctx.lineWidth="20";
+        }
+        else if(btn="clear")
+        {
+            ctx.clearRect(0,0,600,500);
+        }
+    })
+
+</script>
+</body>
+</html>

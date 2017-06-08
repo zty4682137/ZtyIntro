@@ -127,25 +127,25 @@ div
 
 #other ul li a #liimg1
 {
-	background:url("images/1.jpg");
+	background:url("../images/1.jpg");
 	top:-10px;
 	left:200px;
 }
 #other ul li a #liimg2
 {
-	background:url("images/7.jpg");
+	background:url("../images/7.jpg");
 	top:-120px;
 	left:200px;
 }
 #other ul li a #liimg3
 {
-	background:url("images/5.jpg");
+	background:url("../images/5.jpg");
 	top:-230px;
 	left:200px;
 }
 #other ul li a #liimg4
 {
-	background:url("images/3.jpg");
+	background:url("../images/3.jpg");
 	top:-340px;
 	left:200px;
 }

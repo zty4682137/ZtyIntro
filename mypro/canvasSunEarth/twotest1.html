@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{padding: 0;margin:0}
+        svg
+        {
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <!--<svg id="s1" width="600" height="600"></svg>-->
+    <div id="cont"></div>
+    <!--<div id="draw-animation"></div>-->
+
+    <script src="two.js"></script>
+    <script>
+        var c1 =document.getElementById("cont");
+        var p={width:window.innerWidth,height:window.innerHeight};
+        var s1=new Two(p).appendTo(c1);
+        var stargroup=s1.makeGroup();
+        var stargroup2=s1.makeGroup();
+        for(var i=0;i<120;i++)
+        {
+            var star=s1.makeStar(rn(-s1.width/2,s1.width/2),rn(-s1.width/2,s1.width),rn(2,4),rn(4,8),rn(4,6));
+            var starcolor=rn(100,255);
+            star.fill="rgb("+starcolor+","+starcolor +","+starcolor+")";
+            star.noStroke();
+            if(i<=60){stargroup.add(star);}
+            else if(i<=120){stargroup2.add(star);}
+        }
+
+        stargroup.translation.set(s1.width/2,s1.height/2);
+        stargroup2.translation.set(s1.width/2,s1.height/2);
+        var sunshine=s1.makeStar(s1.width/2,s1.height/2,110,100,20);
+        sunshine.fill="yellow";
+        sunshine.noStroke();
+
+        var c = s1.makeCircle(s1.width/2,s1.height/2,100);
+        var cg =s1.makeCircle(s1.width/2,s1.height/2,200);
+        var c2 = s1.makeCircle(200,0,50);
+        var cg2 =s1.makeCircle(200,0,80);
+        var c3 = s1.makeCircle(80,0,10);
+        function rn(min,max){
+            return Math.floor(Math.random()*(max-min)+min)
+        }
+
+        var t=0;
+        c.fill="#ff8000";
+        cg.fill ="transparent";
+        cg.stroke="#fff";
+        cg.linewidth="2";
+
+        var c3group= s1.makeGroup(c3);
+        var c2group= s1.makeGroup(c2,cg2,c3group);
+        c2group.translation.set(s1.width / 2, s1.height / 2);
+        c3group.translation.set(200,0);
+
+        c2.fill="#0080ff";
+        cg2.fill ="transparent";
+        cg2.stroke="#fff";
+        cg2.linewidth="2";
+        c2.noStroke();
+        c3.fill="#00ff80";
+        c3.noStroke();
+        c.noStroke();
+
+
+
+        s1.bind("update",function(){
+            var t =.5;
+            c2group.rotation += t*Math.PI/180;
+            c3group.rotation += 2*t*Math.PI/180;
+            stargroup.rotation -= 0.1*t*Math.PI/180;
+            stargroup2.rotation -= 0.03*t*Math.PI/180;
+        }).play();
+
+    </script>
+
+</body>
+</html>

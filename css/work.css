@@ -25,7 +25,7 @@ a
 	position:absolute;
 	top:50px;
 	left:50px;
-	background:url("../images/work_company.jpg");
+	background:url("../images/work_img/work_company.jpg");
 	background-size: cover;
 	transition: all .7s;
 }
@@ -120,67 +120,77 @@ a
 }
 #liimg1
 {
-	background:url("../images/work_banana.png") center;
+	background:url("../images/work_img/work_banana.png") center;
 	background-size: cover;
 }
 #liimg2
 {
-	background:url("../images/work_cube.png") center;
+	background:url("../images/work_img/work_cube.png") center;
 	background-size: cover;
 }
 #liimg3
 {
-	background:url("../images/work_jd1.png") center;
+	background:url("../images/work_img/work_jd1.png") center;
 	background-size: cover;
 }
 #liimg4
 {
-	background:url("../images/work_jd2.png") center;
+	background:url("../images/work_img/work_jd2.png") center;
 	background-size: cover;
 }
 #liimg5
 {
-	background:url("../images/work_hongbao.png") center;
+	background:url("../images/work_img/work_hongbao.png") center;
 	background-size: cover;
 }
 #liimg6
 {
-	background:url("../images/work_3dcontrol.png") center;
+	background:url("../images/work_img/work_3dcontrol.png") center;
 	background-size: cover;
 }
 #liimg7
 {
-	background:url("../images/work_halo.png") center;
+	background:url("../images/work_img/work_halo.png") center;
 	background-size: cover;
 }
 #liimg8
 {
-	background:url("../images/work_guitar.png") center;
+	background:url("../images/work_img/work_guitar.png") center;
 	background-size: cover;
 }
 #liimg9
 {
-	background:url("../images/work_swim.png") center;
+	background:url("../images/work_img/work_swim.png") center;
 	background-size: cover;
 }
 #liimg10
 {
-	background:url("../images/work_dajidian.png") center;
+	background:url("../images/work_img/work_dajidian.png") center;
 	background-size: cover;
 }
 #liimg11
 {
-	background:url("../images/work_2048.png") center;
+	background:url("../images/work_img/work_2048.png") center;
 	background-size: cover;
 }
 #liimg12
 {
-	background:url("../images/work_login3D.png") center;
+	background:url("../images/work_img/work_login3D.png") center;
 	background-size: cover;
 }
 #liimg13
 {
-	background:url("../images/work_saolei.png") center;
+	background:url("../images/work_img/work_saolei.png") center;
+	background-size: cover;
+}
+#liimg14
+{
+	background:url("../images/work_img/work_sunAndEarth.png") center;
+	background-size: cover;
+}
+#liimg15
+{
+	background:url("../images/work_img/work_paint.png") center;
 	background-size: cover;
 }
 
