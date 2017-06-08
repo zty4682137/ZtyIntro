@@ -245,35 +245,57 @@
 </div>
 
 
-<!--<a href="#" id="backtotop"></a>-->
 
-
-<!--<script src="js/jquery-3.1.1.min.js"></script>-->
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/bootstrap.js"></script>
-<!--动效事件等等-->
+
+
+<!--自定义js-->
 <script>
     /**
-     * 读取后的模态框消失事件
+     * 绑定事件
      */
+    //要提前判断一下
+    $(window).ready(function () {
+        bannerEvent();
+        panelEvent();
+        eleva();
+        var timeOut=setTimeout(function(){
+            modalDismiss();
+            clearTimeout(timeOut);
+            $(window).off("load");
+        },12000)
+    });
+    //加载完全结束后事件
     $(window).load(function () {
+        modalDismiss();
+    });
+    //滚动绑定
+    $(window).scroll(function () {
+        bannerEvent();
+        panelEvent();
+        eleva();
+    });
+
+    /**
+     * modal消失方法
+     */
+    function modalDismiss(){
         $("#ztyModal").css("opacity", "0");
         var timeOver = setTimeout(function () {
             $("#ztyModal").remove();
             clearTimeout(timeOver);
         }, 500)
-    });
-
+    }
 
     /**
-     * 滚动事件控制banner
+     * banner的滚动事件
+     * @type {boolean}
      */
     var scroll0 = false;
     var roundImgShow = false;
     var nowFloor;
-
-    //滚动方法
     //banner方法
     function bannerEvent() {
         var scrollTop = $(window).scrollTop();
@@ -323,24 +345,8 @@
             }
         }
     }
-
-
     //滚动事件
-    $(window).scroll(function () {
-        bannerEvent();
-        panelEvent();
-        eleva();
-    });
-    //要提前判断一下
-    $(window).ready(function () {
-        bannerEvent();
-        panelEvent();
-        eleva();
-    });
-    //鼠标移入背景放大(没成功 用transition 和 animation都不能实现背景过渡)
-    //		$(".bgPanel").mouseenter(function(){
-    //			$(this).children(".ztyModal").css("background","rgba(0,0,0,.2)");
-    //		});
+
 
 </script>
 <!--echaert方法-->
