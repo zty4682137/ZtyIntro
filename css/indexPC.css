@@ -1,6 +1,7 @@
 body
 {
 	font-family:"microsoft yahei";
+	min-width: 950px;
 	/*这个不能解决外边距溢出*/
 	/*box-sizing: border-box;*/
 }
@@ -42,6 +43,9 @@ body
 .fl{
 	float: left;
 }
+.liImg{
+	display: inline-block;
+}
 .half{
 	width: 50%;
 	height: 100%;
@@ -54,7 +58,7 @@ ul{
 }
 .banner{
 	background:url("../images/10.jpg") no-repeat center;
-	background-size:100%;
+	background-size:cover ;
 	transition:all 1s;
 	z-index: 2000;
 }
@@ -270,16 +274,17 @@ ul{
 }
 .bgPanel1{
 	background: url("../images/13.jpg") no-repeat center fixed;
-	background-size: 100%;
+	background-size: cover;
 }
 .bgPanel2{
 	background: url("../images/12.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .bgPanel2 ul{
-	margin: auto;
-	padding: 0 20rem;
+	/*margin: auto;*/
+	/*padding: 0 20rem;*/
 	width: 100%;
+	text-align: center;
 }
 .bgPanel2 ul li{
 	width: 10rem;
