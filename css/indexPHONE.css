@@ -182,7 +182,26 @@ ul{
 #echart2{
 	display: none;
 }
-
+.downArrowDiv{
+	height: 5rem;
+	width: 5rem;
+	font-size: 5rem;
+	line-height: 5rem;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: 2rem;
+	z-index: 2000;
+	color: #fff;
+	animation: blingbling 3s infinite;
+	display: none;
+}
+@keyframes blingbling {
+	0%{opacity: 0;transform: translateY(1.5rem)}
+	50%{opacity: 1;text-shadow: #fff 0 0 10px;transform: translateY(0)}
+	100%{opacity: 0;transform: translateY(1.5rem)}
+}
 
 .cardZoom{
 	animation: cardZoom .8s forwards;

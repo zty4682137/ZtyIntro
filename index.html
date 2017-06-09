@@ -34,6 +34,10 @@
         <param name="wmode" value="opaque">
     </object>
 </div>
+<div class="downArrowDiv">
+    <span class="glyphicon glyphicon-arrow-down"></span>
+</div>
+
 <div id="elevator">
     <ul>
         <li class="eleva0 elevatorActive" id="ele0"><a href=""></a></li>
@@ -252,33 +256,8 @@
 <script src="js/bootstrap.js"></script>
 
 
-<!--自定义js-->
+<!--方法js-->
 <script>
-    /**
-     * 绑定事件
-     */
-        //要提前判断一下
-    $(window).ready(function () {
-        bannerEvent();
-        panelEvent();
-        eleva();
-        var timeOut = setTimeout(function () {
-            modalDismiss();
-            clearTimeout(timeOut);
-            $(window).off("load");
-        }, 12000)
-    });
-    //加载完全结束后事件
-    $(window).load(function () {
-        modalDismiss();
-    });
-    //滚动绑定
-    $(window).scroll(function () {
-        bannerEvent();
-        panelEvent();
-        eleva();
-    });
-
     /**
      * modal消失方法
      */
@@ -300,6 +279,7 @@
     //banner方法
     function bannerEvent() {
         var scrollTop = $(window).scrollTop();
+        //不在顶点时
         if (scrollTop > 0) {
             if (scroll0) {
                 return
@@ -311,10 +291,12 @@
                     $(".intro").addClass("introDown").removeClass("introUp");
                     $(".work").addClass("workDown").removeClass("workUp");
                     $("#elevator").css("opacity", "1");
+                    $(".downArrowDiv").css("display","none");
                     scroll0 = true;
                 })()
             }
         }
+        //在定点时
         else if (scrollTop <= 0) {
             if (scroll0) {
                 (function () {
@@ -323,6 +305,7 @@
                     $(".intro").addClass("introUp").removeClass("introDown");
                     $(".work").addClass("workUp").removeClass("workDown");
                     $("#elevator").css("opacity", "0");
+                    $(".downArrowDiv").css("display","block");
                     scroll0 = false;
                 })()
             }
@@ -502,6 +485,33 @@
         //为什么这个可以实现慢速滚动
         //不知道为什么电梯总差一点所以用这个方法补了10的距离
         $('html, body').animate({scrollTop: floorArr[index] == 0 ? 0 : (floorArr[index] + 10)}, 'slow');
+    });
+</script>
+<!--绑定事件js-->
+<script>
+    /**
+     * 绑定事件
+     */
+        //要提前判断一下
+    $(window).ready(function () {
+        bannerEvent();
+        panelEvent();
+        eleva();
+        var timeOut = setTimeout(function () {
+            modalDismiss();
+            clearTimeout(timeOut);
+            $(window).off("load");
+        }, 12000)
+    });
+    //加载完全结束后事件
+    $(window).load(function () {
+        modalDismiss();
+    });
+    //滚动绑定
+    $(window).scroll(function () {
+        bannerEvent();
+        panelEvent();
+        eleva();
     });
 </script>
 </body>
