@@ -15,20 +15,18 @@
     <link rel="Bookmark" href="images/icon.png">
     <!--样式-->
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/indexPC.css">
-    <!--<link rel="stylesheet" media="screen and (min-width: 800px)" href="css/indexPC.css">-->
+    <!--<link rel="stylesheet" href="css/indexPC.css">-->
+    <link rel="stylesheet" media="screen and (max-width: 800px)" href="css/indexPHONE.css">
+    <link rel="stylesheet" media="screen and (min-width: 800px)" href="css/indexPC.css">
 </head>
 
 <body>
-<!--<div id="header"> -->
-<!--<a href="indexblack.html">关灯</a>-->
-<!--</div>-->
-<!--<a href="lightsoff.html">刚写的刚写的 欢迎沈总来看= =</a>-->
+
 <div id="ztyModal">
     <h2>正在加载...</h2>
 
     <h3>图片较多,加载可能会比较慢</h3>
-    <object controls="" autoplay="" type="application/x-shockwave-flash"
+    <object controls="" autoplay="true" type="application/x-shockwave-flash" id="modalMouse"
             style="outline:none;margin: 0 auto;border-radius: 15px"
             data="http://cdn.abowman.com/widgets/hamster/hamster.swf?" width="400" height="225">
         <param name="movie" value="http://cdn.abowman.com/widgets/hamster/hamster.swf?">
@@ -45,7 +43,6 @@
         <li class="eleva4 " id="ele4"><a href=""></a></li>
     </ul>
 </div>
-
 <table></table>
 <div class="banner bannerUp">
     <a href="intro.html" class="intro introUp">个人介绍</a>
@@ -54,11 +51,14 @@
 <div class="bannerRoom"></div>
 
 <div class="ztypanel panelCtn panelCtn1">
-    <div class="half fl"></div>
-    <div class="half fl"><h3 class="name">张天阳</h3></div>
+
+    <div class="half fl phone-panelHalf"></div>
+    <div class="half fl phone-panelHalf"><h3 class="name">张天阳</h3></div>
 </div>
 <div class="ztypanel bgPanel bgPanel1">
     <div class="ztyModal">
+        <table></table>
+        <span class="hugeText glyphicon glyphicon-phone"></span>
         <h3>联系方式</h3>
 
         <p><span>Phone:&nbsp;&nbsp;</span>13146556360</p>
@@ -67,6 +67,7 @@
     </div>
 </div>
 <div class="ztypanel panelCtn panelCtn2">
+
     <h3>基本信息</h3>
 
     <div class="half fl textAleft">
@@ -91,7 +92,9 @@
     </div>
 </div>
 <div class="ztypanel bgPanel bgPanel2">
+
     <div class="ztyModal">
+        <table></table>
         <h3>其他账号</h3>
         <ul>
             <li class="liImg">
@@ -185,7 +188,9 @@
     </a>
 </div>
 <div class="ztypanel bgPanel bgPanel3">
+
     <div class="ztyModal">
+        <table></table>
         <h3>自我评价</h3>
 
         <p><span style="font-size: 2.5rem;">小</span>童出门夜未归，<span style="font-size: 2.5rem;">阳</span>明月白天作美</p>
@@ -194,13 +199,16 @@
     </div>
 </div>
 <div class="ztypanel panelCtn panelCtn4">
+
     <h3>技能及能力</h3>
 
     <div class="charts fl" id="echart1"></div>
     <div class="charts fl" id="echart2"></div>
 </div>
 <div class="ztypanel bgPanel bgPanel4">
+
     <div class="ztyModal">
+        <table></table>
         <h3>其他</h3>
 
         <p>射箭、乒乓球、羽毛球、篮球、滑雪都会一点</p>
@@ -239,7 +247,6 @@
 </div>
 
 
-
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -255,11 +262,11 @@
         bannerEvent();
         panelEvent();
         eleva();
-        var timeOut=setTimeout(function(){
+        var timeOut = setTimeout(function () {
             modalDismiss();
             clearTimeout(timeOut);
             $(window).off("load");
-        },12000)
+        }, 12000)
     });
     //加载完全结束后事件
     $(window).load(function () {
@@ -275,7 +282,7 @@
     /**
      * modal消失方法
      */
-    function modalDismiss(){
+    function modalDismiss() {
         $("#ztyModal").css("opacity", "0");
         var timeOver = setTimeout(function () {
             $("#ztyModal").remove();
@@ -348,26 +355,12 @@
     var myChart1 = echarts.init($("#echart1")[0]);
     var myChart2 = echarts.init($("#echart2")[0]);
     var option1 = {
-        title: {
-//				text: '罗纳尔多 vs 舍普琴科',
-//				subtext: '完全实况球员数据'
-        },
+        title: {},
         tooltip: {
             trigger: 'axis'
         },
-        legend: {
-//				x : 'center',
-//				data:['专业技能']
-        },
-        toolbox: {
-//				show : true,
-//				feature : {
-//					mark : {show: true},
-//					dataView : {show: true, readOnly: false},
-//					restore : {show: true},
-//					saveAsImage : {show: true}
-//				}
-        },
+        legend: {},
+        toolbox: {},
         calculable: true,
         polar: [
             {
@@ -402,10 +395,6 @@
                 ]
             }
         ]
-//			textStyle:[{
-//				color:"#fff",
-//				fontSize:40
-//			}]
     };
     var option2 = {
         tooltip: {

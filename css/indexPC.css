@@ -282,6 +282,9 @@ ul{
 	background: url("../images/13.jpg") no-repeat center fixed;
 	background-size: cover;
 }
+.bgPanel1 .hugeText{
+	display: none;
+}
 .bgPanel2{
 	background: url("../images/12.jpg") no-repeat center fixed;
 	background-size: cover;
