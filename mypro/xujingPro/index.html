@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #000000;
+            /*font-family:"microsoft Yahei",sans-serif,"Times New Roman";*/
+            font-family: 楷体, sans-serif, "Times New Roman";
+            color: #fff;
+            text-shadow: #444 0 5px 5px;
+            text-indent:25px;
+        }
+        p{
+            font-size: 1.3rem;
+            margin: 0 auto 1rem;
+        }
+        .modal {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .swiper-container {
+            /*width: 300px;*/
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            overflow: hidden;
+        }
+
+        /*h1{*/
+        /*line-height: 52px;*/
+        /*}*/
+        .S0 {
+            /*color:#760202 ;*/
+            /*color:#760202 ;*/
+            writing-mode: tb-rl;
+        }
+
+        .S0 h1 {
+            position: absolute;
+            font-size: 4rem;
+            left: 14%;
+            top: 6%;
+            font-weight: 700;
+        }
+
+        .S0 h3 {
+            position: absolute;
+            font-size: 2rem;
+            left: 51%;
+            top: 36%;
+        }
+        .S4,.S6{
+            text-align: center;
+        }
+        .S5 .text2{
+            margin-top: 7rem;
+        }
+        .disNon {
+            opacity: 0;
+        }
+
+        .showFade {
+            animation: fade-in 1s;
+        }
+
+        .showTransL {
+            animation: transL 1s;
+        }
+        .supermanA {
+            animation: supermanA 4s;
+        }
+
+        .swiper-background {
+            background: url(img/bg.jpg) no-repeat top;
+            background-size: cover;
+            height: 100%;
+            width: 1920px;
+            position: absolute;
+            z-index: -1;
+        }
+        .text5{
+            position: relative;
+            line-height: 11rem;
+            font-size: 2.3rem;
+        }
+        .text5 span{
+            font-size: 7rem;
+        }
+        .text5 img{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: bling 4s infinite;
+        }
+        .text1{
+            margin-top: 9rem;
+        }
+        .superman{
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0
+            }
+        }
+
+        @keyframes transL {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px)
+            }
+        }
+        @keyframes bling {
+            0% {opacity: 0;}
+            40%{opacity: 1;}
+            60%{opacity: 1;}
+            100%{opacity: 0;}
+        }
+        @keyframes supermanA {
+            0% {transform: translateX(-300px) translateY(300px)}
+            40%{transform: translateX(300px) translateY(-300px)}
+            50%{transform: translateX(300px) translateY(-300px);opacity: 0}
+            51%{transform: translateX(-300px) translateY(300px);opacity: 0}
+            60%{transform: translateX(-300px) translateY(300px)}
+            100%{}
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-background" data-swiper-parallax-x="-70%" data-swiper-parallax-duration="3000"></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide S0">
+            <h1>北京故事</h1>
+
+            <h3>我与城市副中心建设同行</h3>
+        </div>
+        <div class="swiper-slide S1">
+            <h1 class="disNon"><img class="" src="img/zhang.png" alt=""/> 从前的北京</h1>
+
+            <p class="disNon">记忆回到从前，胡同里飘着棉花糖和春天青草的味道，旁边的大爷喝着茶下着棋，小姑娘在旁边踢毽子</p>
+
+            <p class="disNon">男男女女的青年走在不宽的街上有说有笑，而我的个子还没长过路边的迎春花</p>
+            <img class="hutong disNon" src="img/hutong.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide S2">
+            <h1 class="disNon"><img class="" src="img/zhang.png" alt=""/> 后来的北京</h1>
+            <p class="disNon">随着北京的人口越来越多，交通的拥堵，环境的脏乱让人无法忍受</p>
+            <p class="disNon">有的小朋友捡起了路边的一朵小花，他妈妈说，太脏了！不要碰！</p>
+            <img class="renkou disNon" src="img/renkou.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide S3">
+            <h1 class="disNon"><img class="" src="img/zhang.png" alt=""/> 现在的北京</h1>
+            <p class="disNon">平地而起，高楼林立，人们在一步步解决城市当中的问题</p>
+            <p class="disNon">昌平的城市副中心建设，成为了一座城市新的起点和开始</p>
+            <img class="city disNon" src="img/city.jpg" alt=""/>
+        </div>
+        <div class="swiper-slide S4">
+            <h1 class="disNon text1">没有错！</h1>
+            <h1 class="disNon text2">功能完备的！</h1>
+            <h1 class="disNon text3">城市副中心！</h1>
+            <h1 class="disNon text4">就在通州！</h1>
+            <h1 class="disNon text5"><img src="img/btnFlash.gif" alt=""/>此时此刻就要来了！</h1>
+
+        </div>
+        <div class="swiper-slide S5">
+            <h1 class="disNon"><img class="" src="img/zhang.png" alt=""/> 他是这样的</h1>
+            <p class="disNon text2">2012年，在北京市第十一次党代会上，北京市委、市政府明确提出“聚焦通州战略，打造功能完备的城市副中”，更加明确了通州作为城市副中心定位，这也是北京市围绕中国特色世界城市目标，推动首都科学发展的一个重大战略决策。</p>
+            <p class="disNon text3">北京城市副中心规划面积155平方公里，除了已经开工的行政办公区工程外，其他区域和项目目前都在进一步完善规划。2016年5月27日中央政治局会议提出，北京城市副中心要构建蓝绿交织、清新明亮、水城共融、多组团集约紧凑发展的生态城市布局，著力打造国际一流和谐宜居之都示范区、新型城镇化示范区、京津冀区域协同发展示范区。</p>
+        </div>
+        <div class="swiper-slide S6">
+            <h1 class="disNon text2">记忆中北京的绿水青山</h1>
+            <h1 class="disNon text3">现代化的都市和机遇</h1>
+            <h1 class="disNon text4">正在一步步走近我们</h1>
+            <br/>
+            <p class="disNon text5"><span>你</span>准备好了吗？</p>
+            <img class="superman disNon" src="img/superman.png" alt=""/>
+        </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <!--<div class="swiper-button-prev"></div>-->
+    <!--<div class="swiper-button-next"></div>-->
+
+
+</div>
+
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: false,
+        speed: 600,
+        parallax: true,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        effect: 'cube',
+        zoom: true,
+        onTransitionEnd: function (swiper) {
+            switch (swiper.activeIndex) {
+                case 0:
+//                    $(".S0 h1").html(0);
+                    break;
+                case 1:
+                {
+                    showAnimate($(".S1 h1"), "showFade");
+                    var time1 = setTimeout(function () {
+                        showAnimate($(".S1 p"), "showTransL");
+                    }, 300);
+                    var time2 = setTimeout(function () {
+                        showAnimate($(".S1 .hutong"), "showTransL");
+                    }, 600);
+                    break;
+                }
+                case 2:
+                {
+                    showAnimate($(".S2 h1"), "showFade");
+                    var time3 = setTimeout(function () {
+                        showAnimate($(".S2 p"), "showTransL");
+                    }, 300);
+                    var time4 = setTimeout(function () {
+                        showAnimate($(".S2 .renkou"), "showTransL");
+                    }, 600);
+                    break;
+                }
+                case 3:
+                {
+                    showAnimate($(".S3 h1"), "showFade");
+                    var time5 = setTimeout(function () {
+                        showAnimate($(".S3 p"), "showTransL");
+                    }, 300);
+                    var time6 = setTimeout(function () {
+                        showAnimate($(".S3 .city"), "showTransL");
+                    }, 600);
+                    break;
+                }
+                case 4:
+                {
+                    showAnimate($(".S4 .text1"), "showFade");
+                    var time7 = setTimeout(function () {
+                        showAnimate($(".S4 .text2"), "showTransL");
+                    }, 300);
+                    var time8 = setTimeout(function () {
+                        showAnimate($(".S4 .text3"), "showTransL");
+                    }, 600);
+                    var time9 = setTimeout(function () {
+                        showAnimate($(".S4 .text4"), "showTransL");
+                    }, 900);
+                    var time10 = setTimeout(function () {
+                        showAnimate($(".S4 .text5"), "showTransL");
+                    }, 1400);
+                    break;
+                }
+                case 5:
+                {
+                    showAnimate($(".S5 h1"), "showFade");
+                    var time11 = setTimeout(function () {
+                        showAnimate($(".S5 .text2"), "showTransL");
+                    }, 300);
+                    var time12 = setTimeout(function () {
+                        showAnimate($(".S5 .text3"), "showTransL");
+                    }, 600);
+                    break;
+                }
+                case 6:
+                {
+                    showAnimate($(".S6 .text2"), "showTransL");
+                    var time13 = setTimeout(function () {
+                        showAnimate($(".S6 .text3"), "showTransL");
+                    }, 300);
+                    var time14 = setTimeout(function () {
+                        showAnimate($(".S6 .text4"), "showTransL");
+                    }, 600);
+                    var time15 = setTimeout(function () {
+                        showAnimate($(".S6 .text5"), "showTransL");
+                    }, 900);
+                    var time16 = setTimeout(function () {
+                        showAnimate($(".S6 .superman"), "supermanA");
+                    }, 1200);
+                    break;
+                }
+            }
+        },
+        // 如果需要分页器
+        pagination: '.swiper-pagination'
+
+        // 如果需要前进后退按钮
+//        nextButton: '.swiper-button-next',
+//        prevButton: '.swiper-button-prev',
+
+    });
+    $(window).load(function () {
+        $(".swiper-container").css("width", $(window).width()).css("height", $(window).height())
+    });
+    function showAnimate(dom, animationName) {
+        dom.removeClass("disNon").addClass(animationName);
+    }
+</script>
+</body>
+</html>
