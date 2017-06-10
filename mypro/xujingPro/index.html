@@ -26,6 +26,11 @@
             right: 0;
             top: 0;
             bottom: 0;
+            background: #000;
+            z-index: 5000;
+            transition: all .5s;
+            text-align: center;
+            padding: 17rem 0 0;
         }
 
         .swiper-container {
@@ -143,6 +148,9 @@
     </style>
 </head>
 <body>
+<div class="modal">
+    <h1>Loading...</h1>
+</div>
 <div class="swiper-container">
     <div class="swiper-background" data-swiper-parallax-x="-70%" data-swiper-parallax-duration="3000"></div>
     <div class="swiper-wrapper">
@@ -205,6 +213,14 @@
 
 <script src="js/swiper.min.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(window).load(function(){
+        $(".modal").css("opacity","0");
+        var timeO=setTimeout(function(){
+            $(".modal").remove();
+        },500)
+    })
+</script>
 <script>
     var mySwiper = new Swiper('.swiper-container', {
         direction: 'vertical',
