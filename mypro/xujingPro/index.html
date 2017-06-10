@@ -10,16 +10,16 @@
             padding: 0;
             margin: 0;
             background: #000000;
-            /*font-family:"microsoft Yahei",sans-serif,"Times New Roman";*/
-            font-family: 楷体, sans-serif, "Times New Roman";
+            font-family:楷体,"microsoft Yahei",sans-serif,"Times New Roman";
+            /*font-family: 楷体, sans-serif, "Times New Roman";*/
             color: #fff;
             text-shadow: #444 0 5px 5px;
             text-indent:25px;
         }
-        p{
-            font-size: 1.3rem;
-            margin: 0 auto 1rem;
-        }
+        /*p{*/
+            /*font-size: 1.3rem;*/
+            /*margin: 0 auto 1rem;*/
+        /*}*/
         .modal {
             position: fixed;
             left: 0;
@@ -30,7 +30,7 @@
             z-index: 5000;
             transition: all .5s;
             text-align: center;
-            padding: 17rem 0 0;
+            padding: 14rem 0 0;
         }
 
         .swiper-container {
@@ -55,7 +55,7 @@
         .S0 h1 {
             position: absolute;
             font-size: 4rem;
-            left: 14%;
+            left: 9%;
             top: 6%;
             font-weight: 700;
         }
@@ -64,7 +64,7 @@
             position: absolute;
             font-size: 2rem;
             left: 51%;
-            top: 36%;
+            top: 26%;
         }
         .S4,.S6{
             text-align: center;
@@ -99,9 +99,11 @@
             position: relative;
             line-height: 11rem;
             font-size: 2.3rem;
+            width: 365px;
+            margin-bottom: 0;
         }
         .text5 span{
-            font-size: 7rem;
+            font-size: 6rem;
         }
         .text5 img{
             height: 100%;
@@ -112,7 +114,7 @@
             animation: bling 4s infinite;
         }
         .text1{
-            margin-top: 9rem;
+            margin-top: 6rem;
         }
         .superman{
             width: 50%;
@@ -193,9 +195,9 @@
             <p class="disNon text3">北京城市副中心规划面积155平方公里，除了已经开工的行政办公区工程外，其他区域和项目目前都在进一步完善规划。2016年5月27日中央政治局会议提出，北京城市副中心要构建蓝绿交织、清新明亮、水城共融、多组团集约紧凑发展的生态城市布局，著力打造国际一流和谐宜居之都示范区、新型城镇化示范区、京津冀区域协同发展示范区。</p>
         </div>
         <div class="swiper-slide S6">
-            <h1 class="disNon text2">记忆中北京的绿水青山</h1>
-            <h1 class="disNon text3">现代化的都市和机遇</h1>
-            <h1 class="disNon text4">正在一步步走近我们</h1>
+            <h2 class="disNon text2">记忆中北京的绿水青山</h2>
+            <h2 class="disNon text3">现代化的都市和机遇</h2>
+            <h2 class="disNon text4">正在一步步走近我们</h2>
             <br/>
             <p class="disNon text5"><span>你</span>准备好了吗？</p>
             <img class="superman disNon" src="img/superman.png" alt=""/>
@@ -213,14 +215,7 @@
 
 <script src="js/swiper.min.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
-<script>
-    $(window).load(function(){
-        $(".modal").css("opacity","0");
-        var timeO=setTimeout(function(){
-            $(".modal").remove();
-        },500)
-    })
-</script>
+
 <script>
     var mySwiper = new Swiper('.swiper-container', {
         direction: 'vertical',
@@ -325,7 +320,11 @@
 
     });
     $(window).load(function () {
-        $(".swiper-container").css("width", $(window).width()).css("height", $(window).height())
+        $(".swiper-container").css("width", $(window).width()).css("height", $(window).height());
+        $(".modal").css("opacity","0");
+        var timeO=setTimeout(function(){
+            $(".modal").remove();
+        },500)
     });
     function showAnimate(dom, animationName) {
         dom.removeClass("disNon").addClass(animationName);
