@@ -5,8 +5,33 @@ body
 	/*这个不能解决外边距溢出*/
 	/*box-sizing: border-box;*/
 }
+.myPhoto{
+	/* height: 100%;
+	width: 100%; */
+	height: 450px;
+	width: 450px;
+	border-radius: 50%;
+	background: #fff url(../images/myPhoto.jpeg) no-repeat center;
+	background-size: cover;
+	/* box-shadow: #000000 8px 12px 53px -11px inset; */
+	margin: auto; 
+}
 .downArrowDiv{
-	display: none;
+	height: 80px;
+	width: 80px;
+	position: fixed;
+	margin: auto;
+	left: 0;
+	right: 0;
+	bottom: 30px;
+	z-index: 9000;
+	opacity: .7;
+	animation: arrow 3s infinite;
+}
+@keyframes arrow{
+	0%{opacity: 0;transform: translate(0,-60px)}
+	80%{opacity: 1;}
+	100%{opacity: 0;}
 }
 #elevator{
 	width: 3rem;
@@ -289,7 +314,7 @@ ul{
 	display: none;
 }
 .bgPanel2{
-	background: url("../images/12.jpg") no-repeat center fixed;
+	background: url("../images/13.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .bgPanel2 ul{
@@ -306,11 +331,11 @@ ul{
 	border-bottom: 2px solid #fff;
 }
 .bgPanel3{
-	background: url("../images/4.jpg") no-repeat center fixed;
+	background: url("../images/13.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .bgPanel4{
-	background: url("../images/11.jpg") no-repeat center fixed;
+	background: url("../images/13.jpg") no-repeat center fixed;
 	background-size: cover;
 }
 .roundImg{
@@ -381,10 +406,23 @@ ul{
 .ztyModal:hover{
 	background: rgba(0,0,0,.5);
 }
-.carousel-inner>.item>img{
+/* .carousel-inner>.item>img{
 	height: 45rem;
-}
+} */
 /*.carousel-inner>.carousel-caption{*/
 	/*right: 0;*/
 	/*left: 50%;*/
 /*}*/
+.carousel-inner{
+	height: 100%;
+}
+.carousel-inner>.item{
+	height: 100%;
+}
+.carousel-item-content{
+	justify-content:center;
+	height: 100%;
+	text-align: center;
+	display: flex;
+	flex-flow: column nowrap;
+}

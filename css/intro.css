@@ -1,99 +1,114 @@
-*
-{
-	padding:0;
-	margin:0;
+* {
+	padding: 0;
+	margin: 0;
 }
-div
-{
+
+div {
 	/*border:1px red solid;*/
 }
-body
-{
-	background:url("../images/9.jpg") 0 80%;
-	background-attachment:fixed;
-	background-size: cover;
+
+body {
+	font-family: "microsoft Yahei";
+	/* background:url("../images/9.jpg") 0 80%; */
+	background: url("../images/intro_bg.jpg");
+	background-attachment: fixed;
+	/* background-size: cover; */
 }
-#nav a,#nav a:link,#nav a:active,#nav a:visited
-{
-	margin:0;
-	display:block;
-	height:58px;
-	width:100%;
-	text-decoration:none;
-	color:#000;
-	font-family:"microsoft yahei";
-	line-height:58px;
-	border-bottom:2px transparent solid;
-	transition:all 0.7s ease-out;
+
+#nav a,
+#nav a:link,
+#nav a:active,
+#nav a:visited {
+	margin: 0;
+	display: block;
+	height: 58px;
+	width: 100%;
+	text-decoration: none;
+	color: #000;
+	font-family: "microsoft yahei";
+	line-height: 58px;
+	border-bottom: 2px transparent solid;
+	transition: all 0.7s ease-out;
 	/*border:1px blue solid;*/
 }
-#nav
-{
-	width:100%;
-	height:60px;
-	position:fixed;
-	top:0px;
-	background:rgba(204,204,204,0.8);
+
+#nav {
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	top: 0px;
+	background: rgba(204, 204, 204, 0.8);
 	/*background:#999;*/
-	z-index:1000;
+	z-index: 1000;
 
 }
-#nav>ol
-{
-	position:absolute;
-	right:130px;
-	list-style:none;
+
+#nav>ol {
+	position: absolute;
+	right: 130px;
+	list-style: none;
 }
-#nav>ol>li
-{
-	float:left;
-	width:100px;
-	height:60px;
+
+#nav>ol>li {
+	float: left;
+	width: 100px;
+	height: 60px;
 	/*border:1px blue solid;*/
-	text-align:center;
+	text-align: center;
 }
-#nav>ol>li>a:hover
-{
-	background:rgba(44,44,44,0.9);
+
+#nav>ol>li>a:hover {
+	background: rgba(44, 44, 44, 0.9);
 	/*background:#111;*/
-	border-bottom:2px red solid;
-	color:#fff;
+	border-bottom: 2px red solid;
+	color: #fff;
 	/*box-shadow:0px -3px 10px 0px #f00 inset;*/
 }
-#main
-{
-	width:60%;
-	margin:130px auto 100px;
-	padding: 0 0 5%;
-	text-align:center;
-	background:url("../images/intro_bg.jpg");
-	border-radius:30px;
-	font-family:"microsoft Yahei";
-	box-shadow:20px 30px 10px 0 rgba(00,00,00,0.6);
-	text-shadow:5px 5px 5px #aaa;
-	
+
+#main {
+	width: 50%;
+	position: absolute;
+	/* margin:130px auto 100px; */
+	right: 0;
+	top: 60px;
+	padding: 0 50px 0 0;
+	text-align: center;
+	/* background:url("../images/intro_bg.jpg"); */
+	/* border-radius:30px; */
+	/* box-shadow:20px 30px 10px 0 rgba(00,00,00,0.6); */
+	/* text-shadow:5px 5px 5px #aaa; */
+
 }
-#main>#pic
-{
-	width:120px;
-	height:150px;
-	margin:10px auto;
-	background:url("images/r1.jpg") -180px -200px;
+
+#main>#pic {
+	width: 120px;
+	height: 150px;
+	margin: 10px auto;
+	background: url(../images/5151白底证件.jpg)center no-repeat;
+	background-size: cover;
 }
-#main h1
-{
-	line-height:160px;
-	font-size:30pt;
+
+#main h1 {
+	line-height: 160px;
+	font-size: 30pt;
 }
-#main p
-{
-	display:block;
-	width:70%;
-	margin:5% auto;
-	text-align:left;
-	line-height:40px;
+
+#main h3 {
+	margin: 10px 0 0;
 }
-#backtotop
+
+#main p {
+	display: block;
+	width: 70%;
+	margin: 5% auto;
+	text-align: left;
+	line-height: 40px;
+	box-sizing: content-box;
+	text-overflow: ellipsis;
+	word-break: break-all;
+}
+
+/* #backtotop
 {
 	display:block;
 	width:82px;
@@ -106,12 +121,79 @@ body
 #backtotop:hover
 {
 	background-position:-510px -589px;
+} */
+/* banner部分 */
+.banner {
+	height: 600px;
+	width: 50%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	/* background: #d3d3f3; */
 }
-/*#cont*/
-/*{*/
-	/*width:100%;*/
-	/*height:1000px;*/
-	/*z-index:-1;*/
-	/*top:60px;*/
-	/*background:url("images/5.jpg");*/
-/*}*/
+
+.stage {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	min-height: 100px;
+	perspective: 800px;
+}
+
+.stageCtn {
+	transform-style: preserve-3d;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	transform-origin: center;
+}
+
+.sheep {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.cloud {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.bannerText {
+	position: absolute;
+	left: 50%;
+	bottom: 60px;
+	font-size: 50px;
+	transform: translate(-50%, -50%);
+	color: #333;
+}
+
+.bannerText2 {
+	position: absolute;
+	left: 50%;
+	bottom: 40px;
+	transform: translate(-50%, -50%);
+	/* color: #333; */
+}
+
+.cloud1 {
+	transform: translate3d(-109px, -83px, 80px);
+	z-index: 100;
+}
+
+.cloud2 {
+	transform: translate3d(88px, 22px, -185px);
+	z-index: -100;
+}
